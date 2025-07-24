@@ -1,0 +1,26 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter Notebook checkpoint
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+.env/
+
+# VSCode settings (선택)
+.vscode/
+
+# OS/IDE junk
+.DS_Store
+Thumbs.db
+
+*.pth
+*.pt
+*.ckpt
+
+data/
+*.tar.gz
+*.pkl
