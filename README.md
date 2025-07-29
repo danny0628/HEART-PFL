@@ -28,7 +28,7 @@ Theoretically, we provide generalization bounds of PerAda, and we prove its conv
     ```bash
     conda create -n perada python=3.8
     conda activate perada
-    conda install pytorch==1.12.0 torchvision==0.13.0 cudatoolkit=11.3 -c pytorch
+    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
     ```
 
     Alternatively, use the docker image `nvidia/pytorch:22.05-py3`.
