@@ -3,6 +3,7 @@ torchinfo
 einops
 gdown
 torchnet
-timm==0.6.11
+timm
 matplotlib
 pandas
+torchattacks
