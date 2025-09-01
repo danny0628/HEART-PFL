@@ -138,10 +138,34 @@ class ResidualBlock(nn.Module):
     def add_adapters(self, dropout=0.):
         if not self.use_adapter:
             self.use_adapter = True
-            self.adapter1 = AdapterBlock(self.planes, dropout)
-            self.adapter2 = AdapterBlock(self.planes, dropout)
+            self.adapter1 = AdapterBlockNBN(self.planes, dropout)
+            self.adapter2 = AdapterBlockNBN(self.planes, dropout)
 
 class AdapterBlock(nn.Module):
+    def __init__(self, planes, dropout):
+        super().__init__()
+        # self.bn = nn.BatchNorm2d(planes)
+        self.bn = create_batch_norm(planes) ## 이게 default임!!!!!!!!!!!!!!
+        # self.bn = BatchNorm2d(planes) ### 이게 NBN 적용하는 버전
+        self.conv = conv1x1(planes, planes)  # 1x1 convolution / LoRA 유무에따라 들어감 
+        # self.lora = LoRAConv2d(planes,planes,r=4, alpha=1.0)
+        self.dropout = nn.Dropout(dropout)
+        # initialize
+        nn.init.normal_(self.conv.weight, 0, 1e-4) # LoRA 유무에따라 들어감 
+        # nn.init.normal_(self.lora.A.weight, mean=0, std=1e-4)
+        # nn.init.zeros_(self.lora.B.weight)
+        # nn.init.constant_(self.conv.bias, 0.0)  # no bias
+
+    def forward(self, x):
+        identity = x
+        out = self.bn(x)  # Batch norm
+        out = self.conv(self.dropout(out))  # 1x1 conv / LoRA 유무에따라 들어감 
+        # out = self.dropout(out)
+        # out = self.lora(out)
+        out += identity  # skip connection
+        return out
+
+class AdapterBlockNBN(nn.Module):
     def __init__(self, planes, dropout):
         super().__init__()
         # self.bn = nn.BatchNorm2d(planes)
