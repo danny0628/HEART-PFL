@@ -302,6 +302,7 @@ class ResNetBN(PFLBaseModel):
         raise NotImplementedError
 
     def split_server_and_client_params(self, client_mode, layers_to_client, adapter_hidden_dim=-1, dropout=0.):
+        print("이거 호출되는지 확인")
         device = next(self.parameters()).device
         if self.is_on_client is not None:
             raise ValueError('This model has already been split across clients and server.')
@@ -369,5 +370,3 @@ class ResNetBN(PFLBaseModel):
         self.is_on_client = is_on_client
         self.is_on_server = is_on_server
         self.to(device)
-    
-
