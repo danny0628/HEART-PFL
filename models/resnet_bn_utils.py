@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 from typing import Optional
 from torchinfo import summary
-
+import torch.nn.functional as F
 from .base_model import PFLBaseModel
 
 
@@ -33,6 +33,7 @@ GROUP_NORM_LOOKUP = {
 }
 
 class BatchNorm2d(nn.BatchNorm2d):
+    """Official NBN BatchNorm2d - scale 메서드 포함"""
     def __init__(self, dim):
         super().__init__(dim)
         
@@ -48,43 +49,28 @@ class BatchNorm2d(nn.BatchNorm2d):
 
         w = self.w if hasattr(self, 'w') else self.weight
         b = self.b if hasattr(self, 'b') else self.bias
-        # exponential_average_factor is set to self.momentum
-        # (when it is available) only so that it gets updated
-        # in ONNX graph when this node is exported to ONNX.
+        
         if self.momentum is None:
             exponential_average_factor = 0.0
         else:
             exponential_average_factor = self.momentum
 
         if self.training and self.track_running_stats:
-            # TODO: if statement only here to tell the jit to skip emitting this when it is None
-            if self.num_batches_tracked is not None:  # type: ignore[has-type]
-                self.num_batches_tracked.add_(1)  # type: ignore[has-type]
-                if self.momentum is None:  # use cumulative moving average
+            if self.num_batches_tracked is not None:
+                self.num_batches_tracked.add_(1)
+                if self.momentum is None:
                     exponential_average_factor = 1.0 / float(self.num_batches_tracked)
-                else:  # use exponential moving average
+                else:
                     exponential_average_factor = self.momentum
 
-        r"""
-        Decide whether the mini-batch stats should be used for normalization rather than the buffers.
-        Mini-batch stats are used in training mode, and in eval mode when buffers are None.
-        """
         if self.training:
             bn_training = True
         else:
             bn_training = (self.running_mean is None) and (self.running_var is None)
 
-        r"""
-        Buffers are only updated if they are to be tracked and we are in training mode. Thus they only need to be
-        passed when the update should occur (i.e. in training mode when they are tracked), or when buffer stats are
-        used for normalization (i.e. in eval mode when buffers are not None).
-        """
-        x = torch.nn.functional.batch_norm(
+        x = F.batch_norm(
             input,
-            # If buffers are not to be tracked, ensure that they won't be updated
-            self.running_mean
-            if not self.training or self.track_running_stats
-            else None,
+            self.running_mean if not self.training or self.track_running_stats else None,
             self.running_var if not self.training or self.track_running_stats else None,
             w,
             b,
@@ -166,28 +152,24 @@ class AdapterBlock(nn.Module):
         return out
 
 class AdapterBlockNBN(nn.Module):
+    """NBN이 적용된 Adapter Block - Official 스타일"""
     def __init__(self, planes, dropout):
         super().__init__()
-        # self.bn = nn.BatchNorm2d(planes)
-        # self.bn = create_batch_norm(planes) ## 이게 default임!!!!!!!!!!!!!!
-        self.bn = BatchNorm2d(planes) ### 이게 NBN 적용하는 버전
-        self.conv = conv1x1(planes, planes)  # 1x1 convolution / LoRA 유무에따라 들어감 
-        # self.lora = LoRAConv2d(planes,planes,r=4, alpha=1.0)
+        # Official NBN BatchNorm 사용
+        self.bn = BatchNorm2d(planes)
+        self.conv = conv1x1(planes, planes)
         self.dropout = nn.Dropout(dropout)
-        # initialize
-        nn.init.normal_(self.conv.weight, 0, 1e-4) # LoRA 유무에따라 들어감 
-        # nn.init.normal_(self.lora.A.weight, mean=0, std=1e-4)
-        # nn.init.zeros_(self.lora.B.weight)
-        # nn.init.constant_(self.conv.bias, 0.0)  # no bias
+        
+        # 초기화
+        nn.init.normal_(self.conv.weight, 0, 1e-4)
 
     def forward(self, x):
         identity = x
-        out = self.bn(x)  # Batch norm
-        out = self.conv(self.dropout(out))  # 1x1 conv / LoRA 유무에따라 들어감 
-        # out = self.dropout(out)
-        # out = self.lora(out)
-        out += identity  # skip connection
+        out = self.bn(x)  # NBN이 적용된 Batch norm
+        out = self.conv(self.dropout(out))
+        out += identity
         return out
+
     
 class ResNetBN(PFLBaseModel):
     def __init__(self, layers=(2, 2, 2, 2), num_classes=62, original_size=False,save_activations=False ):
@@ -239,8 +221,32 @@ class ResNetBN(PFLBaseModel):
         for _ in range(1, blocks):
             layers.append(ResidualBlock(self.inplanes, planes))
         return nn.Sequential(*layers)
+    
+    def init_scale_factor(self):
+        """Adapter 추가 후 NBN scale factor 초기화"""
+        module_list = []
+        for n, m in self.named_modules():
+            # adapter 내부의 BatchNorm2d만 찾기
+            if hasattr(m, "scale") and isinstance(m, BatchNorm2d) and 'adapter' in n:
+                module_list.append(n)
+        
+        if module_list:
+            self.scale_factor = nn.Parameter(torch.ones((len(module_list),)))
+            self.module_list = module_list
+            print(f"NBN initialized for {len(module_list)} adapter BatchNorm modules")
+    
+    def scale_modules(self):
+        """Forward pass 전에 adapter의 BatchNorm에만 scale 적용"""
+        if self.scale_factor is not None:
+            idx = 0
+            for n, m in self.named_modules():
+                if n in self.module_list:
+                    m.scale(self.scale_factor[idx])
+                    idx += 1
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        self.scale_modules()
+        
         x = self.conv1(self.drop_i(x))
         x = self.bn1(x)
         x = self.relu(x)
@@ -326,15 +332,28 @@ class ResNetBN(PFLBaseModel):
             def is_on_client(name):
                 return (name in ['fc.weight', 'fc.bias'])  # final fc
             self.drop_o = nn.Dropout(dropout)
-        elif client_mode in ['adapter']:
-            # Train adapter modules (+ batch norm)
+        # elif client_mode in ['adapter']:
+        #     # Train adapter modules (+ batch norm)
+        #     def is_on_client(name):
+        #         return ('adapter' in name) or ('bn1' in name) or ('bn2' in name)
+        #     # Add adapter modules
+        #     for layer in [self.layer1, self.layer2, self.layer3, self.layer4]:
+        #         for block in layer.children():
+        #             # each block is of type `ResidualBlock`
+        #             block.add_adapters(dropout)
+        if client_mode in ['adapter']:
+            # Train adapter modules (+ batch norm + scale factor)
             def is_on_client(name):
-                return ('adapter' in name) or ('bn1' in name) or ('bn2' in name)
-            # Add adapter modules
+                return ('adapter' in name) or ('scale_factor' in name)
+            
+            # Add adapter modules with NBN
             for layer in [self.layer1, self.layer2, self.layer3, self.layer4]:
                 for block in layer.children():
-                    # each block is of type `ResidualBlock`
                     block.add_adapters(dropout)
+            
+            # Adapter 추가 후 NBN scale factor 초기화
+            self.init_scale_factor()        
+        
         elif client_mode == 'interpolate':  # both on client and server
             is_on_client = lambda _: True
             is_on_server = lambda _: True
