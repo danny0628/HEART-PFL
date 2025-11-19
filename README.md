@@ -1,4 +1,4 @@
-# HEART-PFL: Dual-Sided Framework for Personalized Federated Learning
+# HEART-PFL
 
 [![Venue](https://img.shields.io/badge/Venue-WACV%202026%20(Round%202)-0077b6?style=for-the-badge)](https://wacv2026.thecvf.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12.0-EE4C2C?style=for-the-badge&logo=pytorch)](https://pytorch.org/)
@@ -46,3 +46,33 @@ conda install pytorch==1.12.0 torchvision==0.13.0 cudatoolkit=11.3 -c pytorch
 
 # 5. Install dependencies
 pip install -r requirements.txt
+```
+## 📂 Dataset
+
+This project uses `torchvision.datasets`. When you run the training script, the datasets will be **automatically downloaded** to your data directory.
+
+We evaluate our method on the following benchmarks:
+
+* **[CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)**
+* **[Oxford 102 Flowers (Flowers-102)](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/)**
+* **[Caltech-101](http://www.vision.caltech.edu/Image_Datasets/Caltech101/)**
+
+---
+
+## 🚀 Train
+
+To train the model, run the shell scripts provided in the `scripts` directory.
+Hyperparameters (e.g., learning rate, batch size, partition alpha) can be modified directly inside each `.sh` file.
+
+### CIFAR-100
+```bash
+bash scripts/cifar100/ours.sh
+```
+### Flower-102
+```bash
+bash scripts/flower102/ours.sh
+```
+### Catech-101
+```bash
+bash scripts/caltech101/ours.sh
+```
