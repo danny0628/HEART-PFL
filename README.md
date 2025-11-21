@@ -20,12 +20,12 @@ To address these limitations, we propose **HEART-PFL**, a dual-sided framework d
 
 <table width="100%">
   <tr>
-    <td align="center" width="19%">
+    <td align="center" width="15%">
       <img src="figs/hda_final.png" alt="HDA Framework">
       <br>
       <em>(a) Hierarchical Directional Alignment (HDA)</em>
     </td>
-    <td align="center" width="30%">
+    <td align="center" width="20%">
       <img src="figs/akt.png" alt="AKT Framework">
       <br>
       <em>(b) Adversarial Knowledge Transfer (AKT)</em>
