@@ -16,15 +16,26 @@ Personalized Federated Learning (PFL) aims to deliver effective client-specific 
 To address these limitations, we propose **HEART-PFL**, a dual-sided framework designed to balance hierarchical semantics and global stability:
 
 * **Hierarchical Directional Alignment (HDA):** A client-side mechanism that performs depth-aware alignment. It enforces cosine similarity in early layers for directional consistency and mean-squared matching in deeper layers for semantic precision, preserving personalization.
+
+    <p align="center">
+      <img src="figs/hda_final.png" alt="HDA Framework" width="90%">
+      <br>
+      <em>Figure 1: Hierarchical Directional Alignment (HDA) Overview</em>
+    </p>
+
 * **Adversarial Knowledge Transfer (AKT):** A server-side strategy that strengthens ensemble knowledge transfer via bidirectional, symmetric-KL distillation on both clean and adversarial proxy samples. This mitigates personalization bias and stabilizes global updates.
+
+    <p align="center">
+      <img src="figs/akt.png" alt="AKT Framework" width="90%">
+      <br>
+      <em>Figure 2: Adversarial Knowledge Transfer (AKT) Pipeline</em>
+    </p>
 
 **Key Results:**
 Implemented with lightweight adapters (**1.46M** parameters), HEART-PFL achieves state-of-the-art accuracy on Dirichlet non-IID partitions:
 * **CIFAR-100:** 63.42%
 * **Flowers-102:** 84.23%
 * **Caltech-101:** 95.67%
-
----
 
 ## 🛠️ Installation
 
