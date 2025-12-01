@@ -60,7 +60,7 @@ def get_adapter_model(net='resnet18', num_classes =10 , save_activations=False, 
                 # each block is of type `ResidualBlock`
                 block.add_adapters(per_dropout)
                 # model.split_server_and_client_params(client_mode='adapter', dropout=per_dropout)
-        model.init_scale_factor()
+        # model.init_scale_factor()
 
     else:
         # define output layer
@@ -78,4 +78,3 @@ def get_model(dataset, net,save_activations=False,per_dropout = 0.3):
    
     model=model.cuda()
     return model 
-

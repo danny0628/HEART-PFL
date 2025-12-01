@@ -15,10 +15,9 @@ import wandb
 import os
 from .pdg import LinfPGDAttack
 import torchattacks
+import pandas as pd
 
 import sys
-sys.path.append('/home/ubuntu/mjkim1/fed_al/datasets')
-from datasets.dynamic_loss import FocalLoss, Normalizer, VSLoss
 
 
 class FedBaseAL:
@@ -194,13 +193,15 @@ class FedBaseAL:
         select_model_list = []
 
         state_dict_sever_to_client = self.state_dict_sever_to_client()
+        mean_dir_score = []
+        mean_mag_score = []
         for u in self.selected_clients:
             local_model = self.local_model_list[u]
             local_model.load_state_dict(state_dict_sever_to_client, strict=False)
 
             # update local model
             train_dataloader_u = self.train_data[u]["dataloader"]
-            u_train_loss, u_train_acc = self.run_local_updates(
+            u_train_loss, u_train_acc= self.run_local_updates(
                 u,
                 local_model,
                 train_dataloader_u,
@@ -212,6 +213,7 @@ class FedBaseAL:
             train_acces.append(u_train_acc)
 
             num_train_samples.append(len(self.train_data[u]["indices"]))
+    
 
         # fedavg
         self.server_aggregation(
@@ -268,13 +270,6 @@ class FedBaseAL:
                 )
 
     def train(self, model, trainloader, epoch, optimizer, log=False, u=0):
-        ## logit adj ##
-        # user_num_list = self.cls_num_list[u]
-        # per_cls_weights = (np.array(user_num_list) / sum(user_num_list)) ** (-1)
-        # per_cls_weights = per_cls_weights / np.sum(per_cls_weights) * len(user_num_list)
-        # per_cls_weights = torch.FloatTensor(per_cls_weights).cuda()
-        # criterion = VSLoss(cls_num_list=user_num_list, tau=0 , gamma=0, weight=per_cls_weights).cuda()
-        ###############
         criterion = self.criterion
 
         optimizer = torch.optim.SGD(

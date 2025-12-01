@@ -1,0 +1,526 @@
+img_resolution 32
+Files already downloaded and verified
+img_resolution 32
+Files already downloaded and verified
+cifar_noniid 50000 100 dir
+5000 41000 4000
+cifar_noniid 10000 100 dir
+0 6000 4000
+kd_idx len 5000 out of 5000
+Successfully loaded weights from pretrained resnet
+self.update_layer_name was defined. ['adapter', 'bn1', 'bn2', 'fc.weight', 'fc.bias']
+local finetune 확인####################: False
+personalized cli 4 ep 0 batch 168  train Loss: 4.240 | Acc:38.092% | total 2704
+personalized cli 4 ep 1 batch 168  train Loss: 4.106 | Acc:45.710% | total 2704
+personalized cli 4 ep 2 batch 168  train Loss: 4.088 | Acc:48.447% | total 2704
+personalized cli 4 ep 3 batch 168  train Loss: 4.018 | Acc:50.370% | total 2704
+personalized cli 4 ep 4 batch 168  train Loss: 4.038 | Acc:52.663% | total 2704
+personalized cli 4 ep 5 batch 168  train Loss: 4.087 | Acc:51.516% | total 2704
+personalized cli 4 ep 6 batch 168  train Loss: 4.041 | Acc:52.034% | total 2704
+personalized cli 4 ep 7 batch 168  train Loss: 4.061 | Acc:54.512% | total 2704
+personalized cli 4 ep 8 batch 168  train Loss: 4.141 | Acc:52.515% | total 2704
+personalized cli 4 ep 9 batch 168  train Loss: 4.134 | Acc:53.143% | total 2704
+cli 4 ep 0 batch 168  train Loss: 2.885 | Acc:37.796% | total 2704
+cli 4 ep 1 batch 168  train Loss: 2.195 | Acc:47.966% | total 2704
+cli 4 ep 2 batch 168  train Loss: 2.004 | Acc:50.518% | total 2704
+cli 4 ep 3 batch 168  train Loss: 1.845 | Acc:53.587% | total 2704
+cli 4 ep 4 batch 168  train Loss: 1.776 | Acc:56.398% | total 2704
+cli 4 ep 5 batch 168  train Loss: 1.703 | Acc:57.027% | total 2704
+cli 4 ep 6 batch 168  train Loss: 1.632 | Acc:58.543% | total 2704
+cli 4 ep 7 batch 168  train Loss: 1.551 | Acc:60.688% | total 2704
+cli 4 ep 8 batch 168  train Loss: 1.493 | Acc:62.093% | total 2704
+cli 4 ep 9 batch 168  train Loss: 1.457 | Acc:63.388% | total 2704
+personalized cli 18 ep 0 batch 169  train Loss: 4.689 | Acc:24.449% | total 2720
+personalized cli 18 ep 1 batch 169  train Loss: 4.679 | Acc:33.199% | total 2720
+personalized cli 18 ep 2 batch 169  train Loss: 4.708 | Acc:36.360% | total 2720
+personalized cli 18 ep 3 batch 169  train Loss: 4.728 | Acc:37.022% | total 2720
+personalized cli 18 ep 4 batch 169  train Loss: 4.704 | Acc:38.860% | total 2720
+personalized cli 18 ep 5 batch 169  train Loss: 4.760 | Acc:40.331% | total 2720
+personalized cli 18 ep 6 batch 169  train Loss: 4.771 | Acc:40.074% | total 2720
+personalized cli 18 ep 7 batch 169  train Loss: 4.791 | Acc:38.676% | total 2720
+personalized cli 18 ep 8 batch 169  train Loss: 4.874 | Acc:39.044% | total 2720
+personalized cli 18 ep 9 batch 169  train Loss: 4.780 | Acc:42.316% | total 2720
+cli 18 ep 0 batch 169  train Loss: 3.481 | Acc:24.007% | total 2720
+cli 18 ep 1 batch 169  train Loss: 2.716 | Acc:33.309% | total 2720
+cli 18 ep 2 batch 169  train Loss: 2.443 | Acc:39.559% | total 2720
+cli 18 ep 3 batch 169  train Loss: 2.273 | Acc:41.949% | total 2720
+cli 18 ep 4 batch 169  train Loss: 2.156 | Acc:45.257% | total 2720
+cli 18 ep 5 batch 169  train Loss: 2.124 | Acc:45.404% | total 2720
+cli 18 ep 6 batch 169  train Loss: 1.997 | Acc:47.647% | total 2720
+cli 18 ep 7 batch 169  train Loss: 1.960 | Acc:46.765% | total 2720
+cli 18 ep 8 batch 169  train Loss: 1.866 | Acc:50.515% | total 2720
+cli 18 ep 9 batch 169  train Loss: 1.840 | Acc:51.250% | total 2720
+personalized cli 2 ep 0 batch 111  train Loss: 4.575 | Acc:31.808% | total 1792
+personalized cli 2 ep 1 batch 111  train Loss: 4.382 | Acc:39.676% | total 1792
+personalized cli 2 ep 2 batch 111  train Loss: 4.301 | Acc:45.089% | total 1792
+personalized cli 2 ep 3 batch 111  train Loss: 4.229 | Acc:47.377% | total 1792
+personalized cli 2 ep 4 batch 111  train Loss: 4.251 | Acc:48.382% | total 1792
+personalized cli 2 ep 5 batch 111  train Loss: 4.281 | Acc:49.721% | total 1792
+personalized cli 2 ep 6 batch 111  train Loss: 4.307 | Acc:48.828% | total 1792
+personalized cli 2 ep 7 batch 111  train Loss: 4.299 | Acc:50.112% | total 1792
+personalized cli 2 ep 8 batch 111  train Loss: 4.334 | Acc:49.944% | total 1792
+personalized cli 2 ep 9 batch 111  train Loss: 4.344 | Acc:53.460% | total 1792
+cli 2 ep 0 batch 111  train Loss: 3.399 | Acc:29.464% | total 1792
+cli 2 ep 1 batch 111  train Loss: 2.504 | Acc:43.638% | total 1792
+cli 2 ep 2 batch 111  train Loss: 2.231 | Acc:46.931% | total 1792
+cli 2 ep 3 batch 111  train Loss: 2.070 | Acc:51.116% | total 1792
+cli 2 ep 4 batch 111  train Loss: 1.991 | Acc:51.395% | total 1792
+cli 2 ep 5 batch 111  train Loss: 1.894 | Acc:53.292% | total 1792
+cli 2 ep 6 batch 111  train Loss: 1.794 | Acc:55.413% | total 1792
+cli 2 ep 7 batch 111  train Loss: 1.736 | Acc:56.864% | total 1792
+cli 2 ep 8 batch 111  train Loss: 1.704 | Acc:57.589% | total 1792
+cli 2 ep 9 batch 111  train Loss: 1.617 | Acc:58.817% | total 1792
+personalized cli 8 ep 0 batch 120  train Loss: 4.914 | Acc:27.376% | total 1936
+personalized cli 8 ep 1 batch 120  train Loss: 4.828 | Acc:36.570% | total 1936
+personalized cli 8 ep 2 batch 120  train Loss: 4.649 | Acc:40.341% | total 1936
+personalized cli 8 ep 3 batch 120  train Loss: 4.632 | Acc:43.285% | total 1936
+personalized cli 8 ep 4 batch 120  train Loss: 4.725 | Acc:44.318% | total 1936
+personalized cli 8 ep 5 batch 120  train Loss: 4.730 | Acc:47.107% | total 1936
+personalized cli 8 ep 6 batch 120  train Loss: 4.659 | Acc:47.831% | total 1936
+personalized cli 8 ep 7 batch 120  train Loss: 4.692 | Acc:47.262% | total 1936
+personalized cli 8 ep 8 batch 120  train Loss: 4.755 | Acc:47.986% | total 1936
+personalized cli 8 ep 9 batch 120  train Loss: 4.677 | Acc:50.878% | total 1936
+cli 8 ep 0 batch 120  train Loss: 3.393 | Acc:28.977% | total 1936
+cli 8 ep 1 batch 120  train Loss: 2.663 | Acc:39.721% | total 1936
+cli 8 ep 2 batch 120  train Loss: 2.390 | Acc:43.595% | total 1936
+cli 8 ep 3 batch 120  train Loss: 2.182 | Acc:47.572% | total 1936
+cli 8 ep 4 batch 120  train Loss: 2.034 | Acc:50.517% | total 1936
+cli 8 ep 5 batch 120  train Loss: 2.047 | Acc:51.653% | total 1936
+cli 8 ep 6 batch 120  train Loss: 1.916 | Acc:52.893% | total 1936
+cli 8 ep 7 batch 120  train Loss: 1.821 | Acc:54.855% | total 1936
+cli 8 ep 8 batch 120  train Loss: 1.771 | Acc:55.992% | total 1936
+cli 8 ep 9 batch 120  train Loss: 1.664 | Acc:58.006% | total 1936
+personalized cli 3 ep 0 batch 133  train Loss: 4.431 | Acc:33.675% | total 2144
+personalized cli 3 ep 1 batch 133  train Loss: 4.143 | Acc:45.009% | total 2144
+personalized cli 3 ep 2 batch 133  train Loss: 4.094 | Acc:47.388% | total 2144
+personalized cli 3 ep 3 batch 133  train Loss: 4.037 | Acc:50.093% | total 2144
+personalized cli 3 ep 4 batch 133  train Loss: 4.046 | Acc:50.093% | total 2144
+personalized cli 3 ep 5 batch 133  train Loss: 4.056 | Acc:51.213% | total 2144
+personalized cli 3 ep 6 batch 133  train Loss: 4.068 | Acc:52.285% | total 2144
+personalized cli 3 ep 7 batch 133  train Loss: 4.126 | Acc:53.032% | total 2144
+personalized cli 3 ep 8 batch 133  train Loss: 4.185 | Acc:52.985% | total 2144
+personalized cli 3 ep 9 batch 133  train Loss: 4.314 | Acc:52.565% | total 2144
+cli 3 ep 0 batch 133  train Loss: 3.205 | Acc:33.955% | total 2144
+cli 3 ep 1 batch 133  train Loss: 2.381 | Acc:44.916% | total 2144
+cli 3 ep 2 batch 133  train Loss: 2.130 | Acc:48.881% | total 2144
+cli 3 ep 3 batch 133  train Loss: 1.958 | Acc:52.192% | total 2144
+cli 3 ep 4 batch 133  train Loss: 1.865 | Acc:53.218% | total 2144
+cli 3 ep 5 batch 133  train Loss: 1.768 | Acc:55.644% | total 2144
+cli 3 ep 6 batch 133  train Loss: 1.722 | Acc:55.970% | total 2144
+cli 3 ep 7 batch 133  train Loss: 1.588 | Acc:60.075% | total 2144
+cli 3 ep 8 batch 133  train Loss: 1.524 | Acc:61.754% | total 2144
+cli 3 ep 9 batch 133  train Loss: 1.517 | Acc:60.728% | total 2144
+personalized cli 7 ep 0 batch 184  train Loss: 4.503 | Acc:34.561% | total 2960
+personalized cli 7 ep 1 batch 184  train Loss: 4.331 | Acc:44.324% | total 2960
+personalized cli 7 ep 2 batch 184  train Loss: 4.248 | Acc:46.993% | total 2960
+personalized cli 7 ep 3 batch 184  train Loss: 4.237 | Acc:48.851% | total 2960
+personalized cli 7 ep 4 batch 184  train Loss: 4.275 | Acc:49.189% | total 2960
+personalized cli 7 ep 5 batch 184  train Loss: 4.301 | Acc:51.250% | total 2960
+personalized cli 7 ep 6 batch 184  train Loss: 4.414 | Acc:50.777% | total 2960
+personalized cli 7 ep 7 batch 184  train Loss: 4.366 | Acc:51.419% | total 2960
+personalized cli 7 ep 8 batch 184  train Loss: 4.343 | Acc:52.095% | total 2960
+personalized cli 7 ep 9 batch 184  train Loss: 4.403 | Acc:51.959% | total 2960
+cli 7 ep 0 batch 184  train Loss: 2.989 | Acc:34.662% | total 2960
+cli 7 ep 1 batch 184  train Loss: 2.196 | Acc:47.568% | total 2960
+cli 7 ep 2 batch 184  train Loss: 1.992 | Acc:50.845% | total 2960
+cli 7 ep 3 batch 184  train Loss: 1.871 | Acc:53.885% | total 2960
+cli 7 ep 4 batch 184  train Loss: 1.780 | Acc:55.473% | total 2960
+cli 7 ep 5 batch 184  train Loss: 1.685 | Acc:57.399% | total 2960
+cli 7 ep 6 batch 184  train Loss: 1.614 | Acc:60.101% | total 2960
+cli 7 ep 7 batch 184  train Loss: 1.565 | Acc:60.709% | total 2960
+cli 7 ep 8 batch 184  train Loss: 1.516 | Acc:61.824% | total 2960
+cli 7 ep 9 batch 184  train Loss: 1.483 | Acc:62.331% | total 2960
+personalized cli 12 ep 0 batch 167  train Loss: 4.457 | Acc:31.622% | total 2688
+personalized cli 12 ep 1 batch 167  train Loss: 4.454 | Acc:40.290% | total 2688
+personalized cli 12 ep 2 batch 167  train Loss: 4.401 | Acc:41.964% | total 2688
+personalized cli 12 ep 3 batch 167  train Loss: 4.352 | Acc:44.420% | total 2688
+personalized cli 12 ep 4 batch 167  train Loss: 4.344 | Acc:46.057% | total 2688
+personalized cli 12 ep 5 batch 167  train Loss: 4.385 | Acc:46.912% | total 2688
+personalized cli 12 ep 6 batch 167  train Loss: 4.401 | Acc:46.838% | total 2688
+personalized cli 12 ep 7 batch 167  train Loss: 4.402 | Acc:47.693% | total 2688
+personalized cli 12 ep 8 batch 167  train Loss: 4.416 | Acc:49.107% | total 2688
+personalized cli 12 ep 9 batch 167  train Loss: 4.457 | Acc:47.061% | total 2688
+cli 12 ep 0 batch 167  train Loss: 3.132 | Acc:29.874% | total 2688
+cli 12 ep 1 batch 167  train Loss: 2.442 | Acc:39.695% | total 2688
+cli 12 ep 2 batch 167  train Loss: 2.133 | Acc:46.205% | total 2688
+cli 12 ep 3 batch 167  train Loss: 2.008 | Acc:47.507% | total 2688
+cli 12 ep 4 batch 167  train Loss: 1.870 | Acc:51.637% | total 2688
+cli 12 ep 5 batch 167  train Loss: 1.850 | Acc:51.562% | total 2688
+cli 12 ep 6 batch 167  train Loss: 1.738 | Acc:53.460% | total 2688
+cli 12 ep 7 batch 167  train Loss: 1.710 | Acc:54.613% | total 2688
+cli 12 ep 8 batch 167  train Loss: 1.671 | Acc:56.250% | total 2688
+cli 12 ep 9 batch 167  train Loss: 1.634 | Acc:56.845% | total 2688
+personalized cli 14 ep 0 batch 115  train Loss: 4.611 | Acc:27.909% | total 1856
+personalized cli 14 ep 1 batch 115  train Loss: 4.545 | Acc:38.578% | total 1856
+personalized cli 14 ep 2 batch 115  train Loss: 4.611 | Acc:42.295% | total 1856
+personalized cli 14 ep 3 batch 115  train Loss: 4.563 | Acc:44.343% | total 1856
+personalized cli 14 ep 4 batch 115  train Loss: 4.548 | Acc:45.582% | total 1856
+personalized cli 14 ep 5 batch 115  train Loss: 4.481 | Acc:45.744% | total 1856
+personalized cli 14 ep 6 batch 115  train Loss: 4.526 | Acc:46.821% | total 1856
+personalized cli 14 ep 7 batch 115  train Loss: 4.624 | Acc:46.659% | total 1856
+personalized cli 14 ep 8 batch 115  train Loss: 4.528 | Acc:48.060% | total 1856
+personalized cli 14 ep 9 batch 115  train Loss: 4.558 | Acc:48.438% | total 1856
+cli 14 ep 0 batch 115  train Loss: 3.591 | Acc:26.562% | total 1856
+cli 14 ep 1 batch 115  train Loss: 2.651 | Acc:39.763% | total 1856
+cli 14 ep 2 batch 115  train Loss: 2.372 | Acc:45.259% | total 1856
+cli 14 ep 3 batch 115  train Loss: 2.230 | Acc:45.366% | total 1856
+cli 14 ep 4 batch 115  train Loss: 2.064 | Acc:49.246% | total 1856
+cli 14 ep 5 batch 115  train Loss: 1.989 | Acc:51.886% | total 1856
+cli 14 ep 6 batch 115  train Loss: 1.906 | Acc:53.233% | total 1856
+cli 14 ep 7 batch 115  train Loss: 1.788 | Acc:56.142% | total 1856
+cli 14 ep 8 batch 115  train Loss: 1.788 | Acc:54.526% | total 1856
+cli 14 ep 9 batch 115  train Loss: 1.695 | Acc:56.897% | total 1856
+FedAveraging update ['adapter', 'bn1', 'bn2', 'fc.weight', 'fc.bias']
+서버 모델의 총 파라미터 수: 12,628,132
+서버 모델의 학습 가능한 파라미터 수: 1,459,428
+init_perf_on_val:  9.92
+use kd dataset cifar100
+Server Batch[000/500] KD:0.4528 ValAcc3.9
+Server Batch[001/500] KD:0.7842 ValAcc4.12
+Server Batch[002/500] KD:0.5487 ValAcc4.36
+Server Batch[003/500] KD:0.5030 ValAcc5.04
+Server Batch[004/500] KD:0.4572 ValAcc5.86
+Server Batch[005/500] KD:0.4418 ValAcc6.22
+Server Batch[006/500] KD:0.4190 ValAcc6.56
+Server Batch[007/500] KD:0.3792 ValAcc7.66
+Server Batch[008/500] KD:0.3886 ValAcc6.56
+Server Batch[009/500] KD:0.3590 ValAcc6.58
+Server Batch[010/500] KD:0.3452 ValAcc6.92
+Server Batch[011/500] KD:0.3426 ValAcc6.98
+Server Batch[012/500] KD:0.3253 ValAcc6.9
+Server Batch[013/500] KD:0.3001 ValAcc7.96
+Server Batch[014/500] KD:0.2996 ValAcc8.06
+Server Batch[015/500] KD:0.2683 ValAcc8.66
+Server Batch[016/500] KD:0.2629 ValAcc9.26
+Server Batch[017/500] KD:0.2677 ValAcc9.6
+Server Batch[018/500] KD:0.2478 ValAcc9.9
+Server Batch[019/500] KD:0.2315 ValAcc10.24
+Server Batch[020/500] KD:0.2382 ValAcc10.5
+Server Batch[021/500] KD:0.2213 ValAcc10.44
+Server Batch[022/500] KD:0.2147 ValAcc11.26
+Server Batch[023/500] KD:0.2115 ValAcc10.94
+Server Batch[024/500] KD:0.2042 ValAcc11.56
+Server Batch[025/500] KD:0.1988 ValAcc11.56
+Server Batch[026/500] KD:0.2041 ValAcc12.14
+Server Batch[027/500] KD:0.1888 ValAcc12.12
+Server Batch[028/500] KD:0.1843 ValAcc12.06
+Server Batch[029/500] KD:0.1752 ValAcc12.5
+Server Batch[030/500] KD:0.1635 ValAcc12.46
+Server Batch[031/500] KD:0.1702 ValAcc12.78
+Server Batch[032/500] KD:0.1680 ValAcc12.64
+Server Batch[033/500] KD:0.1611 ValAcc12.96
+Server Batch[034/500] KD:0.1566 ValAcc13.58
+Server Batch[035/500] KD:0.1934 ValAcc13.46
+Server Batch[036/500] KD:0.1599 ValAcc13.12
+Server Batch[037/500] KD:0.1514 ValAcc13.54
+Server Batch[038/500] KD:0.1552 ValAcc13.32
+Server Batch[039/500] KD:0.1541 ValAcc12.86
+Server Batch[040/500] KD:0.1519 ValAcc13.68
+Server Batch[041/500] KD:0.1543 ValAcc13.44
+Server Batch[042/500] KD:0.1401 ValAcc13.88
+Server Batch[043/500] KD:0.1428 ValAcc13.72
+Server Batch[044/500] KD:0.1366 ValAcc14.48
+Server Batch[045/500] KD:0.1348 ValAcc14.44
+Server Batch[046/500] KD:0.1313 ValAcc15.04
+Server Batch[047/500] KD:0.1311 ValAcc15.2
+Server Batch[048/500] KD:0.1302 ValAcc15.28
+Server Batch[049/500] KD:0.1269 ValAcc15.22
+Server Batch[050/500] KD:0.1246 ValAcc15.28
+Server Batch[051/500] KD:0.1238 ValAcc15.42
+Server Batch[052/500] KD:0.1161 ValAcc15.12
+Server Batch[053/500] KD:0.1159 ValAcc15.5
+Server Batch[054/500] KD:0.1149 ValAcc15.68
+Server Batch[055/500] KD:0.1171 ValAcc15.88
+Server Batch[056/500] KD:0.1184 ValAcc16.4
+Server Batch[057/500] KD:0.1080 ValAcc16.34
+Server Batch[058/500] KD:0.1095 ValAcc16.74
+Server Batch[059/500] KD:0.1116 ValAcc16.68
+Server Batch[060/500] KD:0.1058 ValAcc16.64
+Server Batch[061/500] KD:0.1057 ValAcc16.94
+Server Batch[062/500] KD:0.1028 ValAcc16.48
+Server Batch[063/500] KD:0.1061 ValAcc17.02
+Server Batch[064/500] KD:0.1030 ValAcc16.62
+Server Batch[065/500] KD:0.1036 ValAcc16.68
+Server Batch[066/500] KD:0.0990 ValAcc16.7
+Server Batch[067/500] KD:0.0981 ValAcc17.28
+Server Batch[068/500] KD:0.1039 ValAcc17.08
+Server Batch[069/500] KD:0.0974 ValAcc17.0
+Server Batch[070/500] KD:0.0941 ValAcc17.52
+Server Batch[071/500] KD:0.0996 ValAcc17.68
+Server Batch[072/500] KD:0.0933 ValAcc17.5
+Server Batch[073/500] KD:0.0945 ValAcc18.06
+Server Batch[074/500] KD:0.0946 ValAcc17.64
+Server Batch[075/500] KD:0.0885 ValAcc17.6
+Server Batch[076/500] KD:0.0937 ValAcc16.82
+Server Batch[077/500] KD:0.0889 ValAcc17.18
+Server Batch[078/500] KD:0.0892 ValAcc17.58
+Server Batch[079/500] KD:0.0878 ValAcc17.16
+Server Batch[080/500] KD:0.0873 ValAcc17.78
+Server Batch[081/500] KD:0.0906 ValAcc17.9
+Server Batch[082/500] KD:0.0841 ValAcc17.72
+Server Batch[083/500] KD:0.0834 ValAcc17.34
+Server Batch[084/500] KD:0.0871 ValAcc18.12
+Server Batch[085/500] KD:0.0836 ValAcc18.08
+Server Batch[086/500] KD:0.0846 ValAcc17.76
+Server Batch[087/500] KD:0.0829 ValAcc18.06
+Server Batch[088/500] KD:0.0832 ValAcc17.86
+Server Batch[089/500] KD:0.0827 ValAcc17.78
+Server Batch[090/500] KD:0.0784 ValAcc17.84
+Server Batch[091/500] KD:0.0802 ValAcc17.86
+Server Batch[092/500] KD:0.0818 ValAcc18.24
+Server Batch[093/500] KD:0.0804 ValAcc18.62
+Server Batch[094/500] KD:0.0795 ValAcc18.72
+Server Batch[095/500] KD:0.0851 ValAcc18.48
+Server Batch[096/500] KD:0.0772 ValAcc18.52
+Server Batch[097/500] KD:0.0773 ValAcc18.28
+Server Batch[098/500] KD:0.0771 ValAcc18.12
+Server Batch[099/500] KD:0.0774 ValAcc17.68
+Server Batch[100/500] KD:0.0762 ValAcc17.94
+Server Batch[101/500] KD:0.0778 ValAcc18.1
+Server Batch[102/500] KD:0.0761 ValAcc18.22
+Server Batch[103/500] KD:0.0741 ValAcc18.48
+Server Batch[104/500] KD:0.0752 ValAcc18.6
+Server Batch[105/500] KD:0.0749 ValAcc18.48
+Server Batch[106/500] KD:0.0742 ValAcc18.58
+Server Batch[107/500] KD:0.0785 ValAcc19.06
+Server Batch[108/500] KD:0.0713 ValAcc18.6
+Server Batch[109/500] KD:0.0755 ValAcc18.76
+Server Batch[110/500] KD:0.0729 ValAcc18.8
+Server Batch[111/500] KD:0.0730 ValAcc18.4
+Server Batch[112/500] KD:0.0740 ValAcc18.58
+Server Batch[113/500] KD:0.0718 ValAcc18.56
+Server Batch[114/500] KD:0.0724 ValAcc18.48
+Server Batch[115/500] KD:0.0706 ValAcc18.66
+Server Batch[116/500] KD:0.0690 ValAcc18.26
+Server Batch[117/500] KD:0.0718 ValAcc18.06
+Server Batch[118/500] KD:0.0787 ValAcc18.48
+Server Batch[119/500] KD:0.0700 ValAcc19.1
+Server Batch[120/500] KD:0.0697 ValAcc19.34
+Server Batch[121/500] KD:0.0701 ValAcc19.12
+Server Batch[122/500] KD:0.0710 ValAcc18.9
+Server Batch[123/500] KD:0.0702 ValAcc18.58
+Server Batch[124/500] KD:0.0682 ValAcc19.44
+Server Batch[125/500] KD:0.0702 ValAcc18.68
+Server Batch[126/500] KD:0.0671 ValAcc18.44
+Server Batch[127/500] KD:0.0677 ValAcc18.48
+Server Batch[128/500] KD:0.0688 ValAcc18.36
+Server Batch[129/500] KD:0.0694 ValAcc19.36
+Server Batch[130/500] KD:0.0668 ValAcc19.22
+Server Batch[131/500] KD:0.0718 ValAcc19.36
+Server Batch[132/500] KD:0.0671 ValAcc19.36
+Server Batch[133/500] KD:0.0671 ValAcc19.28
+Server Batch[134/500] KD:0.0677 ValAcc19.1
+Server Batch[135/500] KD:0.0668 ValAcc19.76
+Server Batch[136/500] KD:0.0668 ValAcc19.72
+Server Batch[137/500] KD:0.0667 ValAcc19.38
+Server Batch[138/500] KD:0.0649 ValAcc19.84
+Server Batch[139/500] KD:0.0657 ValAcc19.02
+Server Batch[140/500] KD:0.0668 ValAcc19.38
+Server Batch[141/500] KD:0.0648 ValAcc19.58
+Server Batch[142/500] KD:0.0632 ValAcc19.72
+Server Batch[143/500] KD:0.0646 ValAcc19.34
+Server Batch[144/500] KD:0.0652 ValAcc19.64
+Server Batch[145/500] KD:0.0667 ValAcc19.54
+Server Batch[146/500] KD:0.0689 ValAcc19.84
+Server Batch[147/500] KD:0.0636 ValAcc19.92
+Server Batch[148/500] KD:0.0645 ValAcc19.78
+Server Batch[149/500] KD:0.0639 ValAcc19.92
+Server Batch[150/500] KD:0.0643 ValAcc19.7
+Server Batch[151/500] KD:0.0637 ValAcc19.7
+Server Batch[152/500] KD:0.0607 ValAcc19.6
+Server Batch[153/500] KD:0.0621 ValAcc19.58
+Server Batch[154/500] KD:0.0634 ValAcc19.78
+Server Batch[155/500] KD:0.0657 ValAcc19.84
+Server Batch[156/500] KD:0.0627 ValAcc19.94
+Server Batch[157/500] KD:0.0621 ValAcc20.3
+Server Batch[158/500] KD:0.0627 ValAcc19.82
+Server Batch[159/500] KD:0.0610 ValAcc19.74
+Server Batch[160/500] KD:0.0634 ValAcc20.02
+Server Batch[161/500] KD:0.0595 ValAcc19.96
+Server Batch[162/500] KD:0.0614 ValAcc19.74
+Server Batch[163/500] KD:0.0609 ValAcc19.56
+Server Batch[164/500] KD:0.0596 ValAcc19.98
+Server Batch[165/500] KD:0.0616 ValAcc20.08
+Server Batch[166/500] KD:0.0618 ValAcc19.76
+Server Batch[167/500] KD:0.0616 ValAcc20.08
+Server Batch[168/500] KD:0.0625 ValAcc19.9
+Server Batch[169/500] KD:0.0593 ValAcc19.98
+Server Batch[170/500] KD:0.0705 ValAcc19.82
+Server Batch[171/500] KD:0.0596 ValAcc19.68
+Server Batch[172/500] KD:0.0626 ValAcc19.72
+Server Batch[173/500] KD:0.0605 ValAcc19.6
+Server Batch[174/500] KD:0.0594 ValAcc20.16
+Server Batch[175/500] KD:0.0589 ValAcc20.12
+Server Batch[176/500] KD:0.0630 ValAcc19.74
+Server Batch[177/500] KD:0.0591 ValAcc19.86
+Server Batch[178/500] KD:0.0602 ValAcc19.8
+Server Batch[179/500] KD:0.0600 ValAcc19.74
+Server Batch[180/500] KD:0.0589 ValAcc19.68
+Server Batch[181/500] KD:0.0612 ValAcc20.2
+Server Batch[182/500] KD:0.0607 ValAcc20.22
+Server Batch[183/500] KD:0.0628 ValAcc20.06
+Server Batch[184/500] KD:0.0582 ValAcc20.16
+Server Batch[185/500] KD:0.0589 ValAcc20.4
+Server Batch[186/500] KD:0.0569 ValAcc19.92
+Server Batch[187/500] KD:0.0609 ValAcc20.16
+Server Batch[188/500] KD:0.0608 ValAcc20.44
+Server Batch[189/500] KD:0.0587 ValAcc20.58
+Server Batch[190/500] KD:0.0583 ValAcc20.26
+Server Batch[191/500] KD:0.0586 ValAcc20.06
+Server Batch[192/500] KD:0.0584 ValAcc19.94
+Server Batch[193/500] KD:0.0596 ValAcc19.98
+Server Batch[194/500] KD:0.0652 ValAcc20.0
+Server Batch[195/500] KD:0.0571 ValAcc20.28
+Server Batch[196/500] KD:0.0582 ValAcc20.6
+Server Batch[197/500] KD:0.0603 ValAcc20.8
+Server Batch[198/500] KD:0.0590 ValAcc20.58
+Server Batch[199/500] KD:0.0585 ValAcc20.36
+Server Batch[200/500] KD:0.0589 ValAcc20.4
+Server Batch[201/500] KD:0.0574 ValAcc20.46
+Server Batch[202/500] KD:0.0593 ValAcc19.66
+Server Batch[203/500] KD:0.0578 ValAcc20.38
+Server Batch[204/500] KD:0.0585 ValAcc20.04
+Server Batch[205/500] KD:0.0577 ValAcc20.92
+Server Batch[206/500] KD:0.0569 ValAcc20.4
+Server Batch[207/500] KD:0.0542 ValAcc20.82
+Server Batch[208/500] KD:0.0546 ValAcc20.96
+Server Batch[209/500] KD:0.0586 ValAcc20.4
+Server Batch[210/500] KD:0.0559 ValAcc20.78
+Server Batch[211/500] KD:0.0558 ValAcc20.6
+Server Batch[212/500] KD:0.0563 ValAcc20.46
+Server Batch[213/500] KD:0.0559 ValAcc20.18
+Server Batch[214/500] KD:0.0536 ValAcc20.2
+Server Batch[215/500] KD:0.0652 ValAcc20.04
+Server Batch[216/500] KD:0.0560 ValAcc19.96
+Server Batch[217/500] KD:0.0572 ValAcc20.4
+Server Batch[218/500] KD:0.0574 ValAcc20.24
+Server Batch[219/500] KD:0.0544 ValAcc20.64
+Server Batch[220/500] KD:0.0565 ValAcc20.78
+Server Batch[221/500] KD:0.0568 ValAcc20.76
+Server Batch[222/500] KD:0.0550 ValAcc20.54
+Server Batch[223/500] KD:0.0561 ValAcc21.2
+Server Batch[224/500] KD:0.0551 ValAcc20.8
+Server Batch[225/500] KD:0.0560 ValAcc20.36
+Server Batch[226/500] KD:0.0560 ValAcc20.24
+Server Batch[227/500] KD:0.0551 ValAcc20.98
+Server Batch[228/500] KD:0.0546 ValAcc20.62
+Server Batch[229/500] KD:0.0561 ValAcc21.02
+Server Batch[230/500] KD:0.0561 ValAcc21.08
+Server Batch[231/500] KD:0.0542 ValAcc21.14
+Server Batch[232/500] KD:0.0538 ValAcc20.94
+Server Batch[233/500] KD:0.0548 ValAcc21.18
+Server Batch[234/500] KD:0.0541 ValAcc20.64
+Server Batch[235/500] KD:0.0542 ValAcc20.76
+Server Batch[236/500] KD:0.0545 ValAcc20.78
+Server Batch[237/500] KD:0.0522 ValAcc20.34
+Server Batch[238/500] KD:0.0555 ValAcc20.6
+Server Batch[239/500] KD:0.0550 ValAcc20.24
+Server Batch[240/500] KD:0.0523 ValAcc20.84
+Server Batch[241/500] KD:0.0516 ValAcc20.88
+Server Batch[242/500] KD:0.0583 ValAcc20.68
+Server Batch[243/500] KD:0.0552 ValAcc20.78
+Server Batch[244/500] KD:0.0528 ValAcc20.96
+Server Batch[245/500] KD:0.0556 ValAcc21.04
+Server Batch[246/500] KD:0.0514 ValAcc20.46
+Server Batch[247/500] KD:0.0544 ValAcc20.84
+Server Batch[248/500] KD:0.0532 ValAcc20.76
+Server Batch[249/500] KD:0.0524 ValAcc21.0
+Server Batch[250/500] KD:0.0538 ValAcc20.84
+Server Batch[251/500] KD:0.0532 ValAcc20.78
+Server Batch[252/500] KD:0.0528 ValAcc20.38
+Server Batch[253/500] KD:0.0520 ValAcc20.48
+Server Batch[254/500] KD:0.0536 ValAcc20.96
+Server Batch[255/500] KD:0.0521 ValAcc20.42
+Server Batch[256/500] KD:0.0545 ValAcc20.48
+Server Batch[257/500] KD:0.0528 ValAcc20.66
+Server Batch[258/500] KD:0.0535 ValAcc20.18
+Server Batch[259/500] KD:0.0508 ValAcc20.56
+Server Batch[260/500] KD:0.0522 ValAcc20.5
+Server Batch[261/500] KD:0.0512 ValAcc20.72
+Server Batch[262/500] KD:0.0514 ValAcc20.82
+Server Batch[263/500] KD:0.0520 ValAcc20.58
+Server Batch[264/500] KD:0.0524 ValAcc20.66
+Server Batch[265/500] KD:0.0507 ValAcc21.0
+Server Batch[266/500] KD:0.0525 ValAcc20.94
+Server Batch[267/500] KD:0.0518 ValAcc20.22
+Server Batch[268/500] KD:0.0512 ValAcc20.68
+Server Batch[269/500] KD:0.0519 ValAcc20.42
+Server Batch[270/500] KD:0.0511 ValAcc21.02
+Server Batch[271/500] KD:0.0553 ValAcc20.76
+Server Batch[272/500] KD:0.0523 ValAcc20.4
+Server Batch[273/500] KD:0.0515 ValAcc20.72
+Server Batch[274/500] KD:0.0502 ValAcc20.64
+Server Batch[275/500] KD:0.0597 ValAcc20.54
+Server Batch[276/500] KD:0.0534 ValAcc20.94
+Server Batch[277/500] KD:0.0516 ValAcc20.72
+Server Batch[278/500] KD:0.0545 ValAcc21.16
+Server Batch[279/500] KD:0.0518 ValAcc20.86
+Server Batch[280/500] KD:0.0513 ValAcc20.96
+Server Batch[281/500] KD:0.0503 ValAcc21.32
+Server Batch[282/500] KD:0.0512 ValAcc21.28
+Server Batch[283/500] KD:0.0515 ValAcc20.88
+Server Batch[284/500] KD:0.0494 ValAcc21.2
+Server Batch[285/500] KD:0.0522 ValAcc21.06
+Server Batch[286/500] KD:0.0506 ValAcc21.06
+Server Batch[287/500] KD:0.0538 ValAcc20.96
+Server Batch[288/500] KD:0.0505 ValAcc21.5
+Server Batch[289/500] KD:0.0497 ValAcc21.46
+Server Batch[290/500] KD:0.0514 ValAcc21.28
+Server Batch[291/500] KD:0.0515 ValAcc21.48
+Server Batch[292/500] KD:0.0499 ValAcc21.34
+Server Batch[293/500] KD:0.0511 ValAcc21.5
+Server Batch[294/500] KD:0.0496 ValAcc21.56
+Server Batch[295/500] KD:0.0505 ValAcc21.24
+Server Batch[296/500] KD:0.0495 ValAcc20.9
+Server Batch[297/500] KD:0.0497 ValAcc21.0
+Server Batch[298/500] KD:0.0520 ValAcc21.26
+Server Batch[299/500] KD:0.0476 ValAcc21.08
+Server Batch[300/500] KD:0.0476 ValAcc21.04
+Server Batch[301/500] KD:0.0509 ValAcc21.06
+Server Batch[302/500] KD:0.0492 ValAcc20.68
+Server Batch[303/500] KD:0.0494 ValAcc20.72
+Server Batch[304/500] KD:0.0493 ValAcc21.16
+Server Batch[305/500] KD:0.0484 ValAcc21.42
+Server Batch[306/500] KD:0.0493 ValAcc21.08
+Server Batch[307/500] KD:0.0502 ValAcc20.8
+Server Batch[308/500] KD:0.0519 ValAcc21.22
+Server Batch[309/500] KD:0.0490 ValAcc20.9
+Server Batch[310/500] KD:0.0484 ValAcc21.42
+Server Batch[311/500] KD:0.0518 ValAcc21.04
+Server Batch[312/500] KD:0.0480 ValAcc21.48
+Server Batch[313/500] KD:0.0484 ValAcc21.36
+Server Batch[314/500] KD:0.0516 ValAcc21.8
+Server Batch[315/500] KD:0.0491 ValAcc21.12
+Server Batch[316/500] KD:0.0500 ValAcc21.28
+Server Batch[317/500] KD:0.0485 ValAcc21.28
+Server Batch[318/500] KD:0.0493 ValAcc21.54
+Server Batch[319/500] KD:0.0490 ValAcc21.44
+Server Batch[320/500] KD:0.0491 ValAcc21.44
+Server Batch[321/500] KD:0.0484 ValAcc21.66
+Server Batch[322/500] KD:0.0498 ValAcc21.54
+Server Batch[323/500] KD:0.0511 ValAcc20.9
+Server Batch[324/500] KD:0.0496 ValAcc21.14
+Server Batch[325/500] KD:0.0482 ValAcc21.16
+Server Batch[326/500] KD:0.0506 ValAcc21.32
+Server Batch[327/500] KD:0.0479 ValAcc21.16
+Server Batch[328/500] KD:0.0489 ValAcc21.06
+Server Batch[329/500] KD:0.0519 ValAcc21.56
+Server Batch[330/500] KD:0.0468 ValAcc21.68
+Server Batch[331/500] KD:0.0492 ValAcc21.38
+Server Batch[332/500] KD:0.0540 ValAcc21.48
+Server Batch[333/500] KD:0.0492 ValAcc21.36
+Server Batch[334/500] KD:0.0514 ValAcc21.52
+Server Batch[335/500] KD:0.0492 ValAcc21.52
+Server Batch[336/500] KD:0.0486 ValAcc21.28
+Server Batch[337/500] KD:0.0483 ValAcc21.44
+Server Batch[338/500] KD:0.0517 ValAcc21.18
+Server Batch[339/500] KD:0.0488 ValAcc20.76
+Server Batch[340/500] KD:0.0494 ValAcc21.0
+Server Batch[341/500] KD:0.0482 ValAcc21.22
+Server Batch[342/500] KD:0.0477 ValAcc21.38
+Server Batch[343/500] KD:0.0485 ValAcc21.52
+Server Batch[344/500] KD:0.0480 ValAcc21.54
+Server Batch[345/500] KD:0.0472 ValAcc22.08
+Server Batch[346/500] KD:0.0496 ValAcc21.48
+Server Batch[347/500] KD:0.0472 ValAcc21.44
+Server Batch[348/500] KD:0.0480 ValAcc21.64

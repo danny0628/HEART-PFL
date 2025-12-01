@@ -19,7 +19,7 @@ def read_partition_data(data_name,num_clients,alpha,  batch_size, test_batch_siz
     elif data_name == 'chexpert':
         return read_chexpert_data(num_clients, batch_size, test_batch_size , server_batch_size,img_resolution,kd_data_fraction,alpha)
     else:
-        from datasets.prepare_data import get_dataset, cifar_noniid,svhn_noniid, inat2018_noniid, inat2018_noniid_soft
+        from datasets.prepare_data import get_dataset, cifar_noniid,svhn_noniid, flower102_noniid, caltech101_noniid
 
         train_dataset=get_dataset(
                     data_name, data_dir, split="train",img_resolution=img_resolution
@@ -32,11 +32,14 @@ def read_partition_data(data_name,num_clients,alpha,  batch_size, test_batch_siz
             dict_users_train, server_idx, cnts_dict_train, train_proportions_dict = svhn_noniid(train_dataset, num_clients, user_split=0.9, alpha=alpha , shard_per_user=shard_per_user, proportions_dict =None) # 45000 for client, 5000 for server
             dict_users_test, _, cnts_dict_test, _ = svhn_noniid(test_dataset, num_clients, alpha=alpha ,  shard_per_user=shard_per_user, proportions_dict =train_proportions_dict) # 10000 for server 0
         
-        elif data_name == 'inat2018':
-            dict_users_train, server_idx, cnts_dict_train, train_proportions_dict = inat2018_noniid(train_dataset, num_clients, user_split=0.9, alpha=alpha , shard_per_user=shard_per_user, proportions_dict =None)
-            dict_users_test, _, cnts_dict_test, _ = inat2018_noniid_soft(test_dataset, num_clients, alpha=alpha , proportions_dict =train_proportions_dict)
-
-        else:
+        elif data_name == 'flower102':
+            dict_users_train, server_idx, cnts_dict_train, train_proportions_dict = flower102_noniid(train_dataset, num_clients, user_split=0.9, alpha=alpha , shard_per_user=shard_per_user, proportions_dict =None)
+            dict_users_test, _, cnts_dict_test, _ = flower102_noniid(test_dataset, num_clients, alpha=alpha , proportions_dict =train_proportions_dict)   
+        
+        elif data_name == 'caltech101':
+            dict_users_train, server_idx, cnts_dict_train, train_proportions_dict = caltech101_noniid(train_dataset, num_clients, user_split=0.9, alpha=alpha , shard_per_user=shard_per_user, proportions_dict =None)
+            dict_users_test, _, cnts_dict_test, _ = caltech101_noniid(test_dataset, num_clients, alpha=alpha , proportions_dict =train_proportions_dict)             
+        else:   
             if  'cifar10.1' in data_name or 'CIFAR-10-C' in data_name:
                 outfile = "data/cifar10_train_proportions_dict.npy"
                 train_proportions_dict = numpy.load(outfile, allow_pickle=True).item()
@@ -51,11 +54,11 @@ def read_partition_data(data_name,num_clients,alpha,  batch_size, test_batch_siz
         test_data = {}
         for user_id in range(num_clients):  
             
-            train_data.update({user_id: {'dataloader':  torch.utils.data.DataLoader(train_dataset, batch_size= batch_size, num_workers=32, pin_memory=False,
+            train_data.update({user_id: {'dataloader':  torch.utils.data.DataLoader(train_dataset, batch_size= batch_size, num_workers=8, pin_memory=False,
                             sampler=torch.utils.data.sampler.SubsetRandomSampler( dict_users_train[user_id]),drop_last=drop_last), 
                             'indices': dict_users_train[user_id]}})
             
-            test_data.update({user_id: {'dataloader':  torch.utils.data.DataLoader(test_dataset, batch_size= test_batch_size, num_workers=32, pin_memory=False,
+            test_data.update({user_id: {'dataloader':  torch.utils.data.DataLoader(test_dataset, batch_size= test_batch_size, num_workers=8, pin_memory=False,
                             sampler=torch.utils.data.sampler.SubsetRandomSampler( dict_users_test[user_id])), 
                             'indices': dict_users_test[user_id]}})
         
@@ -64,14 +67,14 @@ def read_partition_data(data_name,num_clients,alpha,  batch_size, test_batch_siz
             'train_users': list(train_data.keys()),
             'test_users': list(test_data.keys())
         }
-        val_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= server_batch_size, num_workers=32, pin_memory=False,
+        val_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size= server_batch_size, num_workers=8, pin_memory=False,
                             sampler=torch.utils.data.sampler.SubsetRandomSampler(server_idx))
-        test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size= server_batch_size, num_workers=32, pin_memory=False)
+        test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size= server_batch_size, num_workers=8, pin_memory=False)
 
         num_kd_samples= int(len(server_idx)*kd_data_fraction)
         kd_idx= [server_idx[i] for i in range(num_kd_samples)]
         print("kd_idx len", len(kd_idx), "out of", len(server_idx))
-        kd_dataloader= torch.utils.data.DataLoader(train_dataset, batch_size= server_batch_size, num_workers=2, pin_memory=False,
+        kd_dataloader= torch.utils.data.DataLoader(train_dataset, batch_size= server_batch_size, num_workers=8, pin_memory=False,
                             sampler=torch.utils.data.sampler.SubsetRandomSampler(kd_idx))
         return clients, kd_dataloader, train_data, test_data, val_dataloader,test_dataloader, cnts_dict_train
 

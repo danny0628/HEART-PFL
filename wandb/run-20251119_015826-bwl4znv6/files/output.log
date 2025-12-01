@@ -1,0 +1,191 @@
+img_resolution 32
+Downloading https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz to data/cifar100/cifar-100-python.tar.gz
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 169001437/169001437 [00:10<00:00, 15649422.72it/s]
+Extracting data/cifar100/cifar-100-python.tar.gz to data/cifar100
+img_resolution 32
+Files already downloaded and verified
+cifar_noniid 50000 100 dir
+5000 41000 4000
+cifar_noniid 10000 100 dir
+0 6000 4000
+kd_idx len 5000 out of 5000
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /home/mjkim/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 44.7M/44.7M [00:00<00:00, 116MB/s]
+Successfully loaded weights from pretrained resnet
+self.update_layer_name was defined. ['adapter', 'bn1', 'bn2', 'fc.weight', 'fc.bias']
+local finetune 확인####################: False
+personalized cli 4 ep 0 batch 168  train Loss: 4.240 | Acc:38.092% | total 2704
+personalized cli 4 ep 1 batch 168  train Loss: 4.106 | Acc:45.710% | total 2704
+personalized cli 4 ep 2 batch 168  train Loss: 4.088 | Acc:48.447% | total 2704
+personalized cli 4 ep 3 batch 168  train Loss: 4.018 | Acc:50.370% | total 2704
+personalized cli 4 ep 4 batch 168  train Loss: 4.038 | Acc:52.663% | total 2704
+personalized cli 4 ep 5 batch 168  train Loss: 4.087 | Acc:51.516% | total 2704
+personalized cli 4 ep 6 batch 168  train Loss: 4.041 | Acc:52.034% | total 2704
+personalized cli 4 ep 7 batch 168  train Loss: 4.061 | Acc:54.512% | total 2704
+personalized cli 4 ep 8 batch 168  train Loss: 4.141 | Acc:52.515% | total 2704
+personalized cli 4 ep 9 batch 168  train Loss: 4.134 | Acc:53.143% | total 2704
+cli 4 ep 0 batch 168  train Loss: 2.885 | Acc:37.796% | total 2704
+cli 4 ep 1 batch 168  train Loss: 2.195 | Acc:47.966% | total 2704
+cli 4 ep 2 batch 168  train Loss: 2.004 | Acc:50.518% | total 2704
+cli 4 ep 3 batch 168  train Loss: 1.845 | Acc:53.587% | total 2704
+cli 4 ep 4 batch 168  train Loss: 1.776 | Acc:56.398% | total 2704
+cli 4 ep 5 batch 168  train Loss: 1.703 | Acc:57.027% | total 2704
+cli 4 ep 6 batch 168  train Loss: 1.632 | Acc:58.543% | total 2704
+cli 4 ep 7 batch 168  train Loss: 1.551 | Acc:60.688% | total 2704
+cli 4 ep 8 batch 168  train Loss: 1.493 | Acc:62.093% | total 2704
+cli 4 ep 9 batch 168  train Loss: 1.457 | Acc:63.388% | total 2704
+personalized cli 18 ep 0 batch 169  train Loss: 4.689 | Acc:24.449% | total 2720
+personalized cli 18 ep 1 batch 169  train Loss: 4.679 | Acc:33.199% | total 2720
+personalized cli 18 ep 2 batch 169  train Loss: 4.708 | Acc:36.360% | total 2720
+personalized cli 18 ep 3 batch 169  train Loss: 4.728 | Acc:37.022% | total 2720
+personalized cli 18 ep 4 batch 169  train Loss: 4.704 | Acc:38.860% | total 2720
+personalized cli 18 ep 5 batch 169  train Loss: 4.760 | Acc:40.331% | total 2720
+personalized cli 18 ep 6 batch 169  train Loss: 4.771 | Acc:40.074% | total 2720
+personalized cli 18 ep 7 batch 169  train Loss: 4.791 | Acc:38.676% | total 2720
+personalized cli 18 ep 8 batch 169  train Loss: 4.874 | Acc:39.044% | total 2720
+personalized cli 18 ep 9 batch 169  train Loss: 4.780 | Acc:42.316% | total 2720
+cli 18 ep 0 batch 169  train Loss: 3.481 | Acc:24.007% | total 2720
+cli 18 ep 1 batch 169  train Loss: 2.716 | Acc:33.309% | total 2720
+cli 18 ep 2 batch 169  train Loss: 2.443 | Acc:39.559% | total 2720
+cli 18 ep 3 batch 169  train Loss: 2.273 | Acc:41.949% | total 2720
+cli 18 ep 4 batch 169  train Loss: 2.156 | Acc:45.257% | total 2720
+cli 18 ep 5 batch 169  train Loss: 2.124 | Acc:45.404% | total 2720
+cli 18 ep 6 batch 169  train Loss: 1.997 | Acc:47.647% | total 2720
+cli 18 ep 7 batch 169  train Loss: 1.960 | Acc:46.765% | total 2720
+cli 18 ep 8 batch 169  train Loss: 1.866 | Acc:50.515% | total 2720
+cli 18 ep 9 batch 169  train Loss: 1.840 | Acc:51.250% | total 2720
+personalized cli 2 ep 0 batch 111  train Loss: 4.575 | Acc:31.808% | total 1792
+personalized cli 2 ep 1 batch 111  train Loss: 4.382 | Acc:39.676% | total 1792
+personalized cli 2 ep 2 batch 111  train Loss: 4.301 | Acc:45.089% | total 1792
+personalized cli 2 ep 3 batch 111  train Loss: 4.229 | Acc:47.377% | total 1792
+personalized cli 2 ep 4 batch 111  train Loss: 4.251 | Acc:48.382% | total 1792
+personalized cli 2 ep 5 batch 111  train Loss: 4.281 | Acc:49.721% | total 1792
+personalized cli 2 ep 6 batch 111  train Loss: 4.307 | Acc:48.828% | total 1792
+personalized cli 2 ep 7 batch 111  train Loss: 4.299 | Acc:50.112% | total 1792
+personalized cli 2 ep 8 batch 111  train Loss: 4.334 | Acc:49.944% | total 1792
+personalized cli 2 ep 9 batch 111  train Loss: 4.344 | Acc:53.460% | total 1792
+cli 2 ep 0 batch 111  train Loss: 3.399 | Acc:29.464% | total 1792
+cli 2 ep 1 batch 111  train Loss: 2.504 | Acc:43.638% | total 1792
+cli 2 ep 2 batch 111  train Loss: 2.231 | Acc:46.931% | total 1792
+cli 2 ep 3 batch 111  train Loss: 2.070 | Acc:51.116% | total 1792
+cli 2 ep 4 batch 111  train Loss: 1.991 | Acc:51.395% | total 1792
+cli 2 ep 5 batch 111  train Loss: 1.894 | Acc:53.292% | total 1792
+cli 2 ep 6 batch 111  train Loss: 1.794 | Acc:55.413% | total 1792
+cli 2 ep 7 batch 111  train Loss: 1.736 | Acc:56.864% | total 1792
+cli 2 ep 8 batch 111  train Loss: 1.704 | Acc:57.589% | total 1792
+cli 2 ep 9 batch 111  train Loss: 1.617 | Acc:58.817% | total 1792
+personalized cli 8 ep 0 batch 120  train Loss: 4.914 | Acc:27.376% | total 1936
+personalized cli 8 ep 1 batch 120  train Loss: 4.828 | Acc:36.570% | total 1936
+personalized cli 8 ep 2 batch 120  train Loss: 4.649 | Acc:40.341% | total 1936
+personalized cli 8 ep 3 batch 120  train Loss: 4.632 | Acc:43.285% | total 1936
+personalized cli 8 ep 4 batch 120  train Loss: 4.725 | Acc:44.318% | total 1936
+personalized cli 8 ep 5 batch 120  train Loss: 4.730 | Acc:47.107% | total 1936
+personalized cli 8 ep 6 batch 120  train Loss: 4.659 | Acc:47.831% | total 1936
+personalized cli 8 ep 7 batch 120  train Loss: 4.692 | Acc:47.262% | total 1936
+personalized cli 8 ep 8 batch 120  train Loss: 4.755 | Acc:47.986% | total 1936
+personalized cli 8 ep 9 batch 120  train Loss: 4.677 | Acc:50.878% | total 1936
+cli 8 ep 0 batch 120  train Loss: 3.393 | Acc:28.977% | total 1936
+cli 8 ep 1 batch 120  train Loss: 2.663 | Acc:39.721% | total 1936
+cli 8 ep 2 batch 120  train Loss: 2.390 | Acc:43.595% | total 1936
+cli 8 ep 3 batch 120  train Loss: 2.182 | Acc:47.572% | total 1936
+cli 8 ep 4 batch 120  train Loss: 2.034 | Acc:50.517% | total 1936
+cli 8 ep 5 batch 120  train Loss: 2.047 | Acc:51.653% | total 1936
+cli 8 ep 6 batch 120  train Loss: 1.916 | Acc:52.893% | total 1936
+cli 8 ep 7 batch 120  train Loss: 1.821 | Acc:54.855% | total 1936
+cli 8 ep 8 batch 120  train Loss: 1.771 | Acc:55.992% | total 1936
+cli 8 ep 9 batch 120  train Loss: 1.664 | Acc:58.006% | total 1936
+personalized cli 3 ep 0 batch 133  train Loss: 4.431 | Acc:33.675% | total 2144
+personalized cli 3 ep 1 batch 133  train Loss: 4.143 | Acc:45.009% | total 2144
+personalized cli 3 ep 2 batch 133  train Loss: 4.094 | Acc:47.388% | total 2144
+personalized cli 3 ep 3 batch 133  train Loss: 4.037 | Acc:50.093% | total 2144
+personalized cli 3 ep 4 batch 133  train Loss: 4.046 | Acc:50.093% | total 2144
+personalized cli 3 ep 5 batch 133  train Loss: 4.056 | Acc:51.213% | total 2144
+personalized cli 3 ep 6 batch 133  train Loss: 4.068 | Acc:52.285% | total 2144
+personalized cli 3 ep 7 batch 133  train Loss: 4.126 | Acc:53.032% | total 2144
+personalized cli 3 ep 8 batch 133  train Loss: 4.185 | Acc:52.985% | total 2144
+personalized cli 3 ep 9 batch 133  train Loss: 4.314 | Acc:52.565% | total 2144
+cli 3 ep 0 batch 133  train Loss: 3.205 | Acc:33.955% | total 2144
+cli 3 ep 1 batch 133  train Loss: 2.381 | Acc:44.916% | total 2144
+cli 3 ep 2 batch 133  train Loss: 2.130 | Acc:48.881% | total 2144
+cli 3 ep 3 batch 133  train Loss: 1.958 | Acc:52.192% | total 2144
+cli 3 ep 4 batch 133  train Loss: 1.865 | Acc:53.218% | total 2144
+cli 3 ep 5 batch 133  train Loss: 1.768 | Acc:55.644% | total 2144
+cli 3 ep 6 batch 133  train Loss: 1.722 | Acc:55.970% | total 2144
+cli 3 ep 7 batch 133  train Loss: 1.588 | Acc:60.075% | total 2144
+cli 3 ep 8 batch 133  train Loss: 1.524 | Acc:61.754% | total 2144
+cli 3 ep 9 batch 133  train Loss: 1.517 | Acc:60.728% | total 2144
+personalized cli 7 ep 0 batch 184  train Loss: 4.503 | Acc:34.561% | total 2960
+personalized cli 7 ep 1 batch 184  train Loss: 4.331 | Acc:44.324% | total 2960
+personalized cli 7 ep 2 batch 184  train Loss: 4.248 | Acc:46.993% | total 2960
+personalized cli 7 ep 3 batch 184  train Loss: 4.237 | Acc:48.851% | total 2960
+personalized cli 7 ep 4 batch 184  train Loss: 4.275 | Acc:49.189% | total 2960
+personalized cli 7 ep 5 batch 184  train Loss: 4.301 | Acc:51.250% | total 2960
+personalized cli 7 ep 6 batch 184  train Loss: 4.414 | Acc:50.777% | total 2960
+personalized cli 7 ep 7 batch 184  train Loss: 4.366 | Acc:51.419% | total 2960
+personalized cli 7 ep 8 batch 184  train Loss: 4.343 | Acc:52.095% | total 2960
+personalized cli 7 ep 9 batch 184  train Loss: 4.403 | Acc:51.959% | total 2960
+cli 7 ep 0 batch 184  train Loss: 2.989 | Acc:34.662% | total 2960
+cli 7 ep 1 batch 184  train Loss: 2.196 | Acc:47.568% | total 2960
+cli 7 ep 2 batch 184  train Loss: 1.992 | Acc:50.845% | total 2960
+cli 7 ep 3 batch 184  train Loss: 1.871 | Acc:53.885% | total 2960
+cli 7 ep 4 batch 184  train Loss: 1.780 | Acc:55.473% | total 2960
+cli 7 ep 5 batch 184  train Loss: 1.685 | Acc:57.399% | total 2960
+cli 7 ep 6 batch 184  train Loss: 1.614 | Acc:60.101% | total 2960
+cli 7 ep 7 batch 184  train Loss: 1.565 | Acc:60.709% | total 2960
+cli 7 ep 8 batch 184  train Loss: 1.516 | Acc:61.824% | total 2960
+cli 7 ep 9 batch 184  train Loss: 1.483 | Acc:62.331% | total 2960
+personalized cli 12 ep 0 batch 167  train Loss: 4.457 | Acc:31.622% | total 2688
+personalized cli 12 ep 1 batch 167  train Loss: 4.454 | Acc:40.290% | total 2688
+personalized cli 12 ep 2 batch 167  train Loss: 4.401 | Acc:41.964% | total 2688
+personalized cli 12 ep 3 batch 167  train Loss: 4.352 | Acc:44.420% | total 2688
+personalized cli 12 ep 4 batch 167  train Loss: 4.344 | Acc:46.057% | total 2688
+personalized cli 12 ep 5 batch 167  train Loss: 4.385 | Acc:46.912% | total 2688
+personalized cli 12 ep 6 batch 167  train Loss: 4.401 | Acc:46.838% | total 2688
+personalized cli 12 ep 7 batch 167  train Loss: 4.402 | Acc:47.693% | total 2688
+personalized cli 12 ep 8 batch 167  train Loss: 4.416 | Acc:49.107% | total 2688
+personalized cli 12 ep 9 batch 167  train Loss: 4.457 | Acc:47.061% | total 2688
+cli 12 ep 0 batch 167  train Loss: 3.132 | Acc:29.874% | total 2688
+cli 12 ep 1 batch 167  train Loss: 2.442 | Acc:39.695% | total 2688
+cli 12 ep 2 batch 167  train Loss: 2.133 | Acc:46.205% | total 2688
+cli 12 ep 3 batch 167  train Loss: 2.008 | Acc:47.507% | total 2688
+cli 12 ep 4 batch 167  train Loss: 1.870 | Acc:51.637% | total 2688
+cli 12 ep 5 batch 167  train Loss: 1.850 | Acc:51.562% | total 2688
+cli 12 ep 6 batch 167  train Loss: 1.738 | Acc:53.460% | total 2688
+cli 12 ep 7 batch 167  train Loss: 1.710 | Acc:54.613% | total 2688
+cli 12 ep 8 batch 167  train Loss: 1.671 | Acc:56.250% | total 2688
+cli 12 ep 9 batch 167  train Loss: 1.634 | Acc:56.845% | total 2688
+personalized cli 14 ep 0 batch 115  train Loss: 4.611 | Acc:27.909% | total 1856
+personalized cli 14 ep 1 batch 115  train Loss: 4.545 | Acc:38.578% | total 1856
+personalized cli 14 ep 2 batch 115  train Loss: 4.611 | Acc:42.295% | total 1856
+personalized cli 14 ep 3 batch 115  train Loss: 4.563 | Acc:44.343% | total 1856
+personalized cli 14 ep 4 batch 115  train Loss: 4.548 | Acc:45.582% | total 1856
+personalized cli 14 ep 5 batch 115  train Loss: 4.481 | Acc:45.744% | total 1856
+personalized cli 14 ep 6 batch 115  train Loss: 4.526 | Acc:46.821% | total 1856
+personalized cli 14 ep 7 batch 115  train Loss: 4.624 | Acc:46.659% | total 1856
+personalized cli 14 ep 8 batch 115  train Loss: 4.528 | Acc:48.060% | total 1856
+personalized cli 14 ep 9 batch 115  train Loss: 4.558 | Acc:48.438% | total 1856
+cli 14 ep 0 batch 115  train Loss: 3.591 | Acc:26.562% | total 1856
+cli 14 ep 1 batch 115  train Loss: 2.651 | Acc:39.763% | total 1856
+cli 14 ep 2 batch 115  train Loss: 2.372 | Acc:45.259% | total 1856
+cli 14 ep 3 batch 115  train Loss: 2.230 | Acc:45.366% | total 1856
+cli 14 ep 4 batch 115  train Loss: 2.064 | Acc:49.246% | total 1856
+cli 14 ep 5 batch 115  train Loss: 1.989 | Acc:51.886% | total 1856
+cli 14 ep 6 batch 115  train Loss: 1.906 | Acc:53.233% | total 1856
+cli 14 ep 7 batch 115  train Loss: 1.788 | Acc:56.142% | total 1856
+cli 14 ep 8 batch 115  train Loss: 1.788 | Acc:54.526% | total 1856
+cli 14 ep 9 batch 115  train Loss: 1.695 | Acc:56.897% | total 1856
+FedAveraging update ['adapter', 'bn1', 'bn2', 'fc.weight', 'fc.bias']
+서버 모델의 총 파라미터 수: 12,628,132
+서버 모델의 학습 가능한 파라미터 수: 1,459,428
+Traceback (most recent call last):
+  File "run.py", line 139, in <module>
+    pfl_optim.run_one_round(com_round)
+  File "/home/mjkim/WACV_2026/optim/base_al.py", line 219, in run_one_round
+    self.server_aggregation(
+  File "/home/mjkim/WACV_2026/optim/ours.py", line 150, in server_aggregation
+    distill_model, global_acc = self.server_distillation(
+  File "/home/mjkim/WACV_2026/optim/ours.py", line 106, in server_distillation
+    from aggregation.distillation import Distillation
+  File "/home/mjkim/WACV_2026/aggregation/distillation.py", line 513, in <module>
+    from AT_helper import adaad_inner_loss
+ModuleNotFoundError: No module named 'AT_helper'

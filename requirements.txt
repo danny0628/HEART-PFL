@@ -6,4 +6,3 @@ torchnet
 timm
 matplotlib
 pandas
-torchattacks

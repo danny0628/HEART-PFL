@@ -1,0 +1,25 @@
+{"time":"2025-11-21T01:11:53.691260482Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-21T01:11:54.150807331Z","level":"INFO","msg":"stream: created new stream","id":"fa8bd888"}
+{"time":"2025-11-21T01:11:54.15098703Z","level":"INFO","msg":"handler: started","stream_id":"fa8bd888"}
+{"time":"2025-11-21T01:11:54.151247509Z","level":"INFO","msg":"stream: started","id":"fa8bd888"}
+{"time":"2025-11-21T01:11:54.151329548Z","level":"INFO","msg":"sender: started","stream_id":"fa8bd888"}
+{"time":"2025-11-21T01:11:54.151331618Z","level":"INFO","msg":"writer: started","stream_id":"fa8bd888"}
+{"time":"2025-11-21T18:08:45.322177577Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-11-23T02:02:26.897812128Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:02:33.333830327Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:02:43.536954138Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:02:56.492805732Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:03:20.296786798Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:04:07.694752205Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:05:12.539601364Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:06:19.623453809Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:07:24.86875476Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:08:20.970855373Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-11-23T02:08:53.039274393Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-11-23T02:09:20.039314338Z","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"{\"error\":\"An internal error occurred. Please contact support.\"}"}
+{"time":"2025-11-23T02:09:28.002769061Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-11-23T02:09:54.488527501Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":37497}
+{"time":"2025-11-23T02:09:54.666426807Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":1}
+{"time":"2025-11-23T03:30:25.805305579Z","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/danny0628/pfl-cifar10/fa8bd888/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-11-24T06:11:04.48270817Z","level":"INFO","msg":"stream: closing","id":"fa8bd888"}
+{"time":"2025-11-24T06:11:05.579748565Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}

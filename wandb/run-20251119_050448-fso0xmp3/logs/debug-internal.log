@@ -1,0 +1,10 @@
+{"time":"2025-11-19T05:04:48.970452203Z","level":"INFO","msg":"stream: starting","core version":"0.23.0"}
+{"time":"2025-11-19T05:04:49.425324515Z","level":"INFO","msg":"stream: created new stream","id":"fso0xmp3"}
+{"time":"2025-11-19T05:04:49.425468613Z","level":"INFO","msg":"handler: started","stream_id":"fso0xmp3"}
+{"time":"2025-11-19T05:04:49.42575773Z","level":"INFO","msg":"stream: started","id":"fso0xmp3"}
+{"time":"2025-11-19T05:04:49.425840468Z","level":"INFO","msg":"sender: started","stream_id":"fso0xmp3"}
+{"time":"2025-11-19T05:04:49.425840108Z","level":"INFO","msg":"writer: started","stream_id":"fso0xmp3"}
+{"time":"2025-11-19T20:11:41.533178924Z","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":96761}
+{"time":"2025-11-19T20:11:53.512511481Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-11-19T20:11:56.213931379Z","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":27}
+{"time":"2025-11-20T01:47:31.93585067Z","level":"INFO","msg":"stream: closing","id":"fso0xmp3"}

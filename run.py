@@ -15,6 +15,9 @@ from models.model_utils import get_model
 import optim
 import warnings
 
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
@@ -38,8 +41,8 @@ def get_pfl_optimizer(pfl_algo, **kwargs):
         return optim.Our(**kwargs)
     elif pfl_algo.lower() == "al":
         return optim.AL(**kwargs)
-    elif pfl_algo.lower() == "local_al":
-        return optim.AL2(**kwargs)
+    elif pfl_algo.lower() == "ablation":
+        return optim.Ablation1(**kwargs)
 
     else:
         raise ValueError(f"Unknown PFL algorithm: {pfl_algo}")
@@ -102,7 +105,7 @@ if args.aggregation == "kd":
         kd_dataloader = torch.utils.data.DataLoader(
             kd_trainset,
             batch_size=args.kd_batch_size,
-            num_workers=32,
+            num_workers=8,
             pin_memory=True,
             sampler=torch.utils.data.sampler.SubsetRandomSampler(kd_idx),
         )
@@ -126,6 +129,7 @@ pfl_args = dict(
 ## 여기에 모든 학습+추론이 다있음
 pfl_optim = get_pfl_optimizer(args.pfl_algo, **pfl_args)
 
+print(f"local finetune 확인####################: {args.local_finetune}")
 #else로 들어간다 / local_finetune == False
 if args.local_finetune:
     for com_round in range(args.num_rounds):

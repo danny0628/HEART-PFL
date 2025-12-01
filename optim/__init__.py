@@ -1,6 +1,5 @@
 from .fedavg import FedAvg
 from .standalone import StandAlone
-from .our import Our
-from .perada_al import AL
-from .local_al_kd import AL2
-__all__ = [ FedAvg,   StandAlone, Our, AL, AL2]
+from .ours import AL
+from .ablation import Ablation1
+__all__ = [ FedAvg,   StandAlone, AL, Ablation1]
