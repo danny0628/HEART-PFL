@@ -1,9 +1,3 @@
-# Copyright (c) 2024, NVIDIA Corporation & Affiliates. All rights reserved. 
-# 
-# This work is made available under the Nvidia Source Code License-NC. 
-# To view a copy of this license, visit 
-# https://github.com/NVlabs/PerAda/blob/main/LICENSE
-
 import torch
 import torchvision.transforms as transforms
 import torch 

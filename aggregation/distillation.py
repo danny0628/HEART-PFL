@@ -15,7 +15,6 @@ import torchattacks
 import torch.nn as nn
 
 
-
 def computeAUROC(dataGT, dataPRED, nnClassCount):
     # Computes area under ROC curve 
     # dataGT: ground truth data
@@ -231,14 +230,8 @@ def Distillation(args, kd_server_smodel, kd_trainset , val_dataloader, local_mod
         loss_clean_re = divergence_reverse(out_s, out_t, kd_KL_temperature)
         loss_al_re = divergence_reverse(out_s_al, out_t_al, kd_KL_temperature)
         
-        loss = loss_clean + loss_al + loss_clean_re + loss_al_re 
-        # loss = loss_clean # clean-1
-        # loss = loss_al # al-1
+        loss = loss_clean + loss_al + loss_clean_re + loss_al_re # ours
         
-        # loss = loss_clean + loss_clean_re # clean-dual
-        # loss = loss_al_re + loss_al # al-dual
-        # loss = loss_clean + loss_al # clean-al-1
-    
         loss.backward()
       
         optimizer_server_student.step()
@@ -287,126 +280,3 @@ def Distillation(args, kd_server_smodel, kd_trainset , val_dataloader, local_mod
         print("use distillation model at server step {} with val performance {}".format(server_best_tracker.get_best_perf_loc,server_best_tracker.best_perf  ))
         kd_server_smodel = best_models[0] 
         return kd_server_smodel, server_best_tracker.get_best_perf_loc -1
-
-    
-    
-    
-def Distillation_origin(args, kd_server_smodel, kd_trainset , val_dataloader, local_model_list):
-    kd_lr = args.kd_lr
-    kd_eval_batches_freq= args.kd_eval_batches_freq 
-    
-    early_stopping_server_batches =args.early_stopping_server_batches
-    total_n_server_pseudo_batches =args.total_n_server_pseudo_batches
-    kd_KL_temperature =args.kd_KL_temperature
-
-    
-    optimizer_server_student = torch.optim.Adam(filter(lambda p: p.requires_grad, kd_server_smodel.parameters()),lr = kd_lr)
-    scheduler_server_student = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optimizer_server_student,
-        total_n_server_pseudo_batches,
-        last_epoch=-1,
-    )
-    
-    
-    # get the init server perf.
-    kd_server_smodel.eval()
-    _, init_perf_on_val = test(args.dataset, kd_server_smodel,val_dataloader )
-    print("init_perf_on_val: ", init_perf_on_val)
-
-    server_best_tracker = BestPerf(best_perf=None, larger_is_better=True)
-    best_models = [None]
-    validated_perfs = collections.defaultdict(list)
-    ## note that kd_trainset is replaced to  kd_dataloader 
-    distillation_data_loader=kd_trainset 
-   
-    print("use kd dataset", args.kd_dataset)   
-
-    data_iter = iter(distillation_data_loader)
-    batch_id= 0
-
-
-
-    while batch_id < total_n_server_pseudo_batches:
-        try:
-            batch_data = next(data_iter)
-        except StopIteration:
-            data_iter = iter(distillation_data_loader)
-            batch_data = next(data_iter)
-        
-
-        pseudo_data_student=batch_data[0].cuda() # 0 is data, 1 is label
-        pseudo_data_teacher = pseudo_data_student
-
-
-        out_t= None
-        
-        for cli_idx in range(len(local_model_list)):     
-            with torch.no_grad():
-                _logits =  local_model_list[cli_idx](pseudo_data_teacher)
-                
-                # KL loss
-                if out_t is not None:
-                    out_t += _logits * 1/ len(local_model_list)
-                else: 
-                    out_t = _logits * 1/ len(local_model_list)
-                
-
-
-        kd_server_smodel.train()
-        # steps on the same pseudo data
-        optimizer_server_student.zero_grad()
-        out_s =  kd_server_smodel(pseudo_data_student)     
-   
-        # KL loss
-        loss = divergence( #   Distilling the Knowledge in a Neural Network
-                out_s, out_t, kd_KL_temperature
-            )
-    
-        loss.backward()
-      
-        optimizer_server_student.step()
-
-        # after each batch.
-        if scheduler_server_student is not None:
-            scheduler_server_student.step()
-        # overfit need early stop
-        
-        if (batch_id+1) % kd_eval_batches_freq == 0:
-            kd_server_smodel.eval()
-            _, validated_perf = test(args.dataset,
-                 kd_server_smodel, val_dataloader,log=False
-            )
-            log_str = ('Server Batch[{0:03}/{1:03}] '
-                    'KD:{kd_loss:.4f} ValAcc{val_acc}'.format(
-                    batch_id, total_n_server_pseudo_batches ,kd_loss= loss, val_acc =validated_perf   ))
-            print(log_str)
-
-              # check early stopping.
-            if check_early_stopping(
-                model=kd_server_smodel,
-                model_ind=0,
-                best_tracker=server_best_tracker,
-                validated_perf=validated_perf,
-                validated_perfs=validated_perfs,
-                perf_index=batch_id + 1,
-                early_stopping_batches=early_stopping_server_batches,
-                best_models=best_models,
-            ):
-                break
-
-        batch_id += 1
-
-    use_init_server_model = (
-            True
-            if init_perf_on_val  >= server_best_tracker.best_perf
-            else False
-        )
-
-        # get the server model.
-    if use_init_server_model:
-        print("use init server model instead.")
-        return None, 0
-    else:
-        print("use distillation model at server step {} with val performance {}".format(server_best_tracker.get_best_perf_loc,server_best_tracker.best_perf  ))
-        kd_server_smodel = best_models[0] 
-        return kd_server_smodel, server_best_tracker.get_best_perf_loc -1 

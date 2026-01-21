@@ -1,9 +1,3 @@
-# Copyright (c) 2024, NVIDIA Corporation & Affiliates. All rights reserved. 
-# 
-# This work is made available under the Nvidia Source Code License-NC. 
-# To view a copy of this license, visit 
-# https://github.com/NVlabs/PerAda/blob/main/LICENSE
-
 from datasets.read_data import read_partition_data
 import random
 import numpy as np
@@ -37,12 +31,8 @@ def get_pfl_optimizer(pfl_algo, **kwargs):
         return optim.StandAlone(**kwargs)
     elif pfl_algo.lower() in ["central"]:
         return optim.Central(**kwargs)
-    elif pfl_algo.lower() in ["our"]:
-        return optim.Our(**kwargs)
     elif pfl_algo.lower() == "al":
         return optim.AL(**kwargs)
-    elif pfl_algo.lower() == "ablation":
-        return optim.Ablation1(**kwargs)
 
     else:
         raise ValueError(f"Unknown PFL algorithm: {pfl_algo}")
@@ -65,7 +55,6 @@ if args.log_online:
     wandb.config.update(args)
 
 init_seed(args.seed)
-# GPU setup https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html
 torch.backends.cudnn.benchmark = True  # faster
 
 # prepare data
