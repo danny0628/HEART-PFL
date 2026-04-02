@@ -39,48 +39,22 @@ def test(dataset, model, testloader , log=False):
     test_loss = 0
     correct = 0
     total = 0
-    if dataset =='chexpert':
-        y_prob = []
-        y_true = []
-        from sklearn import metrics
-        import numpy as np 
-        criterion= torch.nn.BCEWithLogitsLoss()
-        sgmd =torch.nn.Sigmoid().cuda()
-        with torch.no_grad():
-            for batch_idx, (x, y) in enumerate(testloader):
-                x, y = x.to('cuda'), y.to('cuda')
-                pred = model(x)
-                loss = criterion(pred, y)
-                y_prob.append(sgmd(pred).detach().cpu().numpy())
-                y_true.append(y.detach().cpu().numpy())
+    criterion= torch.nn.CrossEntropyLoss()
+    with torch.no_grad():
+        for batch_idx, (x, y) in enumerate(testloader):
+            x, y = x.to('cuda'), y.to('cuda')
+            pred = model(x)
+            loss = criterion(pred, y)
 
-                test_loss += loss.item()
-                total += y.size(0)
-                
-            y_prob = np.concatenate(y_prob, axis=0)
-            y_true = np.concatenate(y_true, axis=0)
-            aurocMean = metrics.roc_auc_score(y_true, y_prob, average='macro')
-            if log:
-                print('test Loss: %.3f | Acc:%.3f%%'%(test_loss/(batch_idx+1), aurocMean*100))
-        return test_loss/len(testloader), aurocMean*100.
+            test_loss += loss.item()
+            _, pred_c = pred.max(1)
+            total += y.size(0)
+            correct += pred_c.eq(y).sum().item()
+        if log:
+            print('test Loss: %.3f | Acc:%.3f%%'%(test_loss/(batch_idx+1), 100.*correct/total))
 
-    else:
-        criterion= torch.nn.CrossEntropyLoss()
-        with torch.no_grad():
-            for batch_idx, (x, y) in enumerate(testloader):
-                x, y = x.to('cuda'), y.to('cuda')
-                pred = model(x)
-                loss = criterion(pred, y)
-
-                test_loss += loss.item()
-                _, pred_c = pred.max(1)
-                total += y.size(0)
-                correct += pred_c.eq(y).sum().item()
-            if log:
-                print('test Loss: %.3f | Acc:%.3f%%'%(test_loss/(batch_idx+1), 100.*correct/total))
-
-        acc = 100.*correct/total
-        return test_loss/len(testloader), acc
+    acc = 100.*correct/total
+    return test_loss/len(testloader), acc
 
 
 

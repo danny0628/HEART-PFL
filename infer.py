@@ -57,20 +57,6 @@ for cname in all_name:
         loader_dict[cname] = get_cifar_dataloader(cname = cname)
     elif args.dataset=='cifar100':
         loader_dict[cname] = get_cifar100_dataloader(cname = cname)
-    elif args.dataset=='oh':
-        from datasets.read_data import read_office_home_data
-        args.num_clients=4
-        _, _, _, cli_test_data, _,test_dataloader = read_office_home_data(args.num_clients, batch_size= 2048,test_batch_size=2048, server_batch_size=1024)
-        loader_dict[cname] = test_dataloader      
-    elif args.dataset=='chexpert':
-        from datasets.read_data import read_chexpert_data
-        _, _, _, _, _,test_dataloader = read_chexpert_data(args.num_clients, batch_size= 1024,test_batch_size=50000, server_batch_size=1024)
-        loader_dict[cname] = test_dataloader
-if args.dataset=='oh':
-    all_name = ['natural',"art", "clipart", "product", "real_world"] 
-    domains_name = ["art", "clipart", "product", "real_world"]
-    for domain_id in range(args.num_clients):
-        loader_dict[domains_name[domain_id]]= cli_test_data[domain_id]['dataloader']
 
        
 infer_folder='infer_corrupt' if args.corrupt else 'infer'

@@ -96,32 +96,7 @@ def test(model, testloader,dataset="cifar10"):
     correct = 0
     total = 0
 
-    if dataset =='chexpert':
-        y_prob = []
-        y_true = []
-        from sklearn import metrics
-        import numpy as np 
-        criterion= torch.nn.BCEWithLogitsLoss()
-        sgmd =torch.nn.Sigmoid().cuda()
-        with torch.no_grad():
-            for batch_idx, (x, y) in enumerate(testloader):
-                x, y = x.to('cuda'), y.to('cuda')
-                pred = model(x)
-                loss = criterion(pred, y)
-                y_prob.append(sgmd(pred).detach().cpu().numpy())
-                y_true.append(y.detach().cpu().numpy())
-
-                test_loss += loss.item()
-                total += y.size(0)
-                
-            y_prob = np.concatenate(y_prob, axis=0)
-            y_true = np.concatenate(y_true, axis=0)
-            aurocMean = metrics.roc_auc_score(y_true, y_prob, average='macro')
-            print('test Loss: %.3f | Acc:%.3f%%'%(test_loss/(batch_idx+1), aurocMean*100))
-        return test_loss/len(testloader), aurocMean*100.
-
-    else:
-        criterion = torch.nn.CrossEntropyLoss()
+    criterion = torch.nn.CrossEntropyLoss()
         with torch.no_grad():
             for batch_idx, (x, y) in enumerate(testloader):
                 x, y = x.to('cuda'), y.to('cuda')

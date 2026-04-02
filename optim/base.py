@@ -15,9 +15,6 @@ import wandb
 import os
 from .pdg import LinfPGDAttack
 import torchattacks
-import sys
-sys.path.append('/mnt/home/mjkim1/node5.gpu/miccai2025_fl/dataset')
-from datasets.dynamic_loss import *
 
 class FedBase:
     """Base class for FL algos"""
@@ -54,10 +51,7 @@ class FedBase:
 
         self.global_model = copy.deepcopy(global_model)
         self.current_round = -1
-        if self.args.dataset == "chexpert":
-            self.criterion = torch.nn.BCEWithLogitsLoss()
-        else:
-            self.criterion = torch.nn.CrossEntropyLoss()
+        self.criterion = torch.nn.CrossEntropyLoss()
 
         self.kd_trainset = kd_trainset
         self.val_dataloader = val_dataloader
@@ -285,11 +279,8 @@ class FedBase:
                     optimizer.step()
                     train_loss += loss.item()
                     total += y.size(0)
-                    if self.args.dataset == "chexpert":
-                        correct += 0
-                    else:
-                        _, pred_c = pred.max(1)
-                        correct += pred_c.eq(y).sum().item()
+                    _, pred_c = pred.max(1)
+                    correct += pred_c.eq(y).sum().item()
 
                 print(
                     "cli %d ep %d batch %d  train Loss: %.3f | Acc:%.3f%% | total %d"
@@ -335,55 +326,24 @@ class FedBase:
         test_loss = 0
         correct = 0
         total = 0
-        if self.args.dataset == "chexpert":
-            y_prob = []
-            y_true = []
-            from sklearn import metrics
-            import numpy as np
+        with torch.no_grad():
+            for batch_idx, (x, y) in enumerate(testloader):
+                x, y = x.to("cuda"), y.to("cuda")
+                pred = model(x)
+                loss = criterion(pred, y)
 
-            criterion = torch.nn.BCEWithLogitsLoss()
-            sgmd = torch.nn.Sigmoid().cuda()
-            with torch.no_grad():
-                for batch_idx, (x, y) in enumerate(testloader):
-                    x, y = x.to("cuda"), y.to("cuda")
-                    pred = model(x)
-                    loss = criterion(pred, y)
-                    y_prob.append(sgmd(pred).detach().cpu().numpy())
-                    y_true.append(y.detach().cpu().numpy())
+                test_loss += loss.item()
+                _, pred_c = pred.max(1)
+                total += y.size(0)
+                correct += pred_c.eq(y).sum().item()
+            if log:
+                print(
+                    "test Loss: %.3f | Acc:%.3f%%"
+                    % (test_loss / (batch_idx + 1), 100.0 * correct / total)
+                )
 
-                    test_loss += loss.item()
-                    total += y.size(0)
-
-                y_prob = np.concatenate(y_prob, axis=0)
-                y_true = np.concatenate(y_true, axis=0)
-                aurocMean = metrics.roc_auc_score(y_true, y_prob, average="macro")
-
-                if log:
-                    print(
-                        "test Loss: %.3f | Acc:%.3f%%"
-                        % (test_loss / (batch_idx + 1), aurocMean * 100)
-                    )
-            return test_loss / len(testloader), aurocMean * 100.0
-
-        else:
-            with torch.no_grad():
-                for batch_idx, (x, y) in enumerate(testloader):
-                    x, y = x.to("cuda"), y.to("cuda")
-                    pred = model(x)
-                    loss = criterion(pred, y)
-
-                    test_loss += loss.item()
-                    _, pred_c = pred.max(1)
-                    total += y.size(0)
-                    correct += pred_c.eq(y).sum().item()
-                if log:
-                    print(
-                        "test Loss: %.3f | Acc:%.3f%%"
-                        % (test_loss / (batch_idx + 1), 100.0 * correct / total)
-                    )
-
-            acc = 100.0 * correct / total
-            return test_loss / len(testloader), acc
+        acc = 100.0 * correct / total
+        return test_loss / len(testloader), acc
         
     def test_al(self, model, testloader, log=False):
         model.eval()
@@ -393,38 +353,7 @@ class FedBase:
         correct = 0
         adv_correct = 0
         total = 0
-        if self.args.dataset == "chexpert":
-            y_prob = []
-            y_true = []
-            from sklearn import metrics
-            import numpy as np
-
-            criterion = torch.nn.BCEWithLogitsLoss()
-            sgmd = torch.nn.Sigmoid().cuda()
-            with torch.no_grad():
-                for batch_idx, (x, y) in enumerate(testloader):
-                    x, y = x.to("cuda"), y.to("cuda")
-                    pred = model(x)
-                    loss = criterion(pred, y)
-                    y_prob.append(sgmd(pred).detach().cpu().numpy())
-                    y_true.append(y.detach().cpu().numpy())
-
-                    test_loss += loss.item()
-                    total += y.size(0)
-
-                y_prob = np.concatenate(y_prob, axis=0)
-                y_true = np.concatenate(y_true, axis=0)
-                aurocMean = metrics.roc_auc_score(y_true, y_prob, average="macro")
-
-                if log:
-                    print(
-                        "test Loss: %.3f | Acc:%.3f%%"
-                        % (test_loss / (batch_idx + 1), aurocMean * 100)
-                    )
-            return test_loss / len(testloader), aurocMean * 100.0
-
-        else:
-            al_net = model
+        al_net = model
             al_net.to('cuda')
             adversary = LinfPGDAttack(al_net)
             with torch.no_grad():

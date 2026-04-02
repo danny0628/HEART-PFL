@@ -4,5 +4,6 @@ einops
 gdown
 torchnet
 timm
+torchattacks
 matplotlib
 pandas

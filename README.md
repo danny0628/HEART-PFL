@@ -1,6 +1,7 @@
 # HEART-PFL
 
 [![Venue](https://img.shields.io/badge/Venue-WACV%202026%20(Round%202)-0077b6?style=for-the-badge)](https://wacv2026.thecvf.com/)
+[![arXiv](https://img.shields.io/badge/arXiv-2603.24209-b31b1b?style=for-the-badge&logo=arxiv)](https://arxiv.org/abs/2603.24209)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12.0-EE4C2C?style=for-the-badge&logo=pytorch)](https://pytorch.org/)
 
 This repository is the official implementation of **HEART-PFL**.
@@ -38,13 +39,16 @@ Implemented with lightweight adapters (**1.46M** parameters), HEART-PFL achieves
 * **CIFAR-100:** 63.42%
 * **Flowers-102:** 84.23%
 * **Caltech-101:** 95.67%
+
+---
+
 ## 🛠️ Installation
 
 We recommend using **Anaconda** to manage the environment.
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/minjun-kim/HEART-PFL.git](https://github.com/minjun-kim/HEART-PFL.git)
+git clone https://github.com/danny0628/HEART-PFL.git
 cd HEART-PFL
 
 # 2. Create environment
@@ -59,6 +63,9 @@ conda install pytorch==1.12.0 torchvision==0.13.0 cudatoolkit=11.3 -c pytorch
 # 5. Install dependencies
 pip install -r requirements.txt
 ```
+
+---
+
 ## 📂 Dataset
 
 This project uses `torchvision.datasets`. When you run the training script, the datasets will be **automatically downloaded** to your data directory.
@@ -80,10 +87,33 @@ Hyperparameters (e.g., learning rate, batch size, partition alpha) can be modifi
 ```bash
 bash scripts/cifar100/ours.sh
 ```
-### Flower-102
+### Flowers-102
 ```bash
 bash scripts/flower102/ours.sh
 ```
-### Catech-101
+### Caltech-101
 ```bash
 bash scripts/caltech101/ours.sh
+```
+
+---
+
+## 📖 Citation
+
+If you find this work useful, please cite our paper:
+
+```bibtex
+@inproceedings{kim2026heart,
+  title={HEART-PFL: Stable Personalized Federated Learning under Heterogeneity with Hierarchical Directional Alignment and Adversarial Knowledge Transfer},
+  author={Kim, Minjun and Kim, Minje},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year={2026}
+}
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the [NVIDIA Source Code License-NC](LICENSE) (non-commercial use only).
+Portions of this code are derived from [PerAda](https://github.com/NVlabs/PerAda).

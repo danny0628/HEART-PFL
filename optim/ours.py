@@ -295,12 +295,8 @@ class AL(FedBaseAL):
 
                     train_loss += loss.item()
                     total += y.size(0)
-                    if self.args.dataset == "chexpert":
-                        pred_c = (torch.sigmoid(pred) > 0.5).float()
-                        correct += (pred_c == y).float().mean().item() * y.size(0)
-                    else:
-                        _, pred_c = pred.max(1)
-                        correct += pred_c.eq(y).sum().item()
+                    _, pred_c = pred.max(1)
+                    correct += pred_c.eq(y).sum().item()
 
                 print(
                     "personalized cli %d ep %d batch %d  train Loss: %.3f | Acc:%.3f%% | total %d"
